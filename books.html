@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Editing &amp; Design — Giorgia Migliorini</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,900&family=Inter:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:#ffffff; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  img { display:block; width:100%; height:auto; object-fit:cover; }
+
+  :root{
+    --pad: clamp(20px, 4.5vw, 64px);
+    --paper: #ffffff;
+    --ink: #0B0A0A;
+    --mut: rgba(11,10,10,0.56);
+    --purple: #5B2557;
+    --blush: #F6DCE8;
+  }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .serif-italic{ font-family:'Fraunces', serif; font-weight:500; font-style:italic; letter-spacing:0; }
+
+  .proj-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: var(--pad);
+  }
+  .proj-nav a{ font-size:13px; font-weight:500; transition:opacity 0.2s; }
+  .proj-nav a:hover{ opacity:0.55; }
+
+  .proj-head{
+    padding: 0 var(--pad) 12px;
+    max-width:760px;
+  }
+  .proj-title{
+    font-family:'Archivo', sans-serif;
+    font-weight:800;
+    font-size:clamp(32px, 6vw, 64px);
+    letter-spacing:-0.01em;
+    margin:0 0 10px;
+  }
+  .proj-dek{
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    color:var(--mut);
+    max-width:640px;
+    margin-top:16px;
+    line-height:1.6;
+  }
+
+  .books-list{
+    padding: 48px var(--pad) 140px;
+    display:flex;
+    flex-direction:column;
+    gap:64px;
+  }
+  .book-block{
+    display:flex;
+    align-items:flex-start;
+    gap:40px;
+    max-width:920px;
+    padding-top:48px;
+    border-top:1px solid rgba(11,10,10,0.12);
+  }
+  .book-block:first-child{ border-top:none; padding-top:0; }
+  .book-cover{ width:180px; flex:none; border-radius:2px; overflow:hidden; background:rgba(11,10,10,0.06); }
+  .book-cover img{ width:100%; height:auto; }
+  .book-text{ flex:1; min-width:0; }
+  .book-title{
+    font-family:'Archivo', sans-serif;
+    font-weight:800;
+    font-size:clamp(19px,2.4vw,26px);
+    letter-spacing:-0.005em;
+    margin:0 0 4px;
+    line-height:1.25;
+  }
+  .book-byline{ font-size:13.5px; color:var(--mut); margin-bottom:6px; }
+  .book-cat{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:14.5px;
+    color:var(--mut);
+    margin-bottom:16px;
+  }
+  .book-abstract{ font-size:15px; line-height:1.7; color:var(--ink); margin:0 0 18px; }
+  .book-role{ font-size:14.5px; line-height:1.7; color:var(--ink); }
+  .book-role b{ font-weight:600; }
+  .book-link{ display:inline-block; margin-top:14px; font-size:13px; font-weight:600; border-bottom:1px solid rgba(11,10,10,0.3); transition:opacity 0.2s; }
+  .book-link:hover{ opacity:0.55; }
+
+  @media (max-width:720px){
+    .proj-title{ font-size:clamp(28px,9vw,44px); }
+    .book-block{ flex-direction:column; gap:16px; }
+    .book-cover{ width:140px; }
+  }
+</style>
+</head>
+<body>
+  <div class="proj-nav">
+    <a href="index.html">Giorgia Migliorini</a>
+    <a href="index.html#lavori">&larr; Back to Projects</a>
+  </div>
+
+  <div class="proj-head">
+    <h1 class="proj-title">Book Editing &amp; Design</h1>
+    <div class="proj-dek">Five books, edited or curated and designed for print — from unpublished archival texts to a translated novel, a photobook, and an illustrated exhibition companion.</div>
+  </div>
+
+  <div class="books-list">
+
+    <div class="book-block" id="nutrire-dio">
+      <div class="book-cover"><img src="nutrire-dio.jpg" alt="Nutrire Dio: Avvicinamento a Dionisio"></div>
+      <div class="book-text">
+        <h2 class="book-title">Nutrire Dio: Avvicinamento a Dionisio</h2>
+        <div class="book-byline">Giuliano Scabia, curated by Gianfranco Anzini</div>
+        <div class="book-cat">Critical edition — unpublished lecture notes</div>
+        <p class="book-abstract">A volume written by Giuliano Scabia himself, gathering the university courses on the god Dionysus that he taught at Bologna's DAMS between 1997 and 2000. The book gave its name to <em class="serif-italic">Nutrire Dio</em>, the wider Fondazione Giuliano Scabia project and exhibition devoted to the playwright's mystical writing.</p>
+        <p class="book-role"><b>My role:</b> this is the edition of previously unpublished texts, curated by scholars and researchers. I handled the OCR of the texts from the archival documents, corrected the OCR against the originals, edited the introductory and critical essays, and took care of the book's layout and design.</p>
+      </div>
+    </div>
+
+    <div class="book-block" id="presenza-fare">
+      <div class="book-cover"><img src="presenza-fare.jpg" alt="La Presenza e il Fare: Teatro e liturgia"></div>
+      <div class="book-text">
+        <h2 class="book-title">La Presenza e il Fare: Teatro e liturgia</h2>
+        <div class="book-byline">Edited by Francesco Ricciarelli</div>
+        <div class="book-cat">Critical edition — unpublished conference proceedings</div>
+        <p class="book-abstract">A collection of the proceedings from a 1979 symposium on theatre and liturgy, drawn from the Fondazione Giuliano Scabia's archive and published alongside <em class="serif-italic">Nutrire Dio</em>. It gathers previously unpublished reflections on the point where sacred ritual and stage performance meet.</p>
+        <p class="book-role"><b>My role:</b> as with <em class="serif-italic">Nutrire Dio</em>, this is the edition of previously unpublished texts, curated by scholars and researchers. I handled the OCR of the texts from the archival documents, corrected the OCR against the originals, edited the introductory and critical essays, and took care of the book's layout and design.</p>
+      </div>
+    </div>
+
+    <div class="book-block" id="braslavsky">
+      <div class="book-cover"><img src="braslavsky.jpg" alt="Era pallida la notte, brillavano le luci"></div>
+      <div class="book-text">
+        <h2 class="book-title">Era pallida la notte, brillavano le luci</h2>
+        <div class="book-byline">Emma Braslavsky &mdash; Italian edition, La Conchiglia di Santiago</div>
+        <div class="book-cat">Novel — Italian translation</div>
+        <p class="book-abstract">The Italian edition of Emma Braslavsky's German novel <em class="serif-italic">Die Nacht war bleich, die Lichter blinkten</em>: a genre-bending, darkly comic crime novel set in a near-future Berlin where humanoid companions have become common and suicide rates among the people who live with them have surged. A detective's investigation becomes a way of probing the line between human and artificial.</p>
+        <p class="book-role"><b>My role:</b> I worked on revising the Italian translation, and took care of the book's layout and design.</p>
+      </div>
+    </div>
+
+    <div class="book-block" id="marcocavallo">
+      <div class="book-cover"><img src="marcocavallo.jpg" alt="Marco Cavallo per immagini"></div>
+      <div class="book-text">
+        <h2 class="book-title">Marco Cavallo per immagini</h2>
+        <div class="book-byline">Giuliano Scabia &mdash; La Conchiglia di Santiago</div>
+        <div class="book-cat">Photobook</div>
+        <p class="book-abstract">A photographic account of Marco Cavallo, the giant papier-mâché horse born out of Giuliano Scabia's 1973 theatre workshop at the Trieste psychiatric hospital &mdash; a project that became one of the enduring symbols of Franco Basaglia's reform of psychiatric care in Italy &mdash; told here through images rather than text.</p>
+        <p class="book-role"><b>My role:</b> I took care of the book's layout and graphic design.</p>
+      </div>
+    </div>
+
+    <div class="book-block" id="mongolfiere">
+      <div class="book-cover"><img src="mongolfiere.jpg" alt="Mongolfiere e macchine volanti"></div>
+      <div class="book-text">
+        <h2 class="book-title">Mongolfiere e macchine volanti</h2>
+        <div class="book-byline">Giuliano Scabia, Antonio Utili &mdash; photographs by Maurizio Conca &mdash; la casa Usher</div>
+        <div class="book-cat">Critical edition &mdash; unpublished texts, no. 6 in the <em class="serif-italic">Quaderni del Teatro Vagante</em> series</div>
+        <p class="book-abstract">The sixth volume in the Fondazione Giuliano Scabia's <em class="serif-italic">Quaderni del Teatro Vagante</em> series, built around a 1977 episode in Bologna: in the tense weeks following student unrest at the university, Scabia proposed that his students each build a hot-air balloon &mdash; a puppet to be flown and performed against the city's skyline. Scabia's and Antonio Utili's own accounts of the project are collected here alongside Maurizio Conca's photographs of the balloons launched over Bologna's rooftops and squares. The book accompanies the exhibition <a href="index.html#exhibitions"><em class="serif-italic">Forse un drago nascerà</em></a>, on view at BiblioteCaNova Isolotto in autumn 2026.</p>
+        <p class="book-role"><b>My role:</b> this is the edition of previously unpublished texts, curated by scholars and researchers. I handled the OCR of the texts from the archival documents, corrected the OCR against the originals, edited the introductory and critical essays, and took care of the book's layout and design.</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

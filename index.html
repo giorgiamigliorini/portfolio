@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giorgia Migliorini — Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,900&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    html,body { margin:0; background:#ffffff; scroll-behavior:smooth; overflow-x:hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display:block; width:100%; height:100%; object-fit:cover; }
+
+    :root{
+      --pad: clamp(20px, 4.5vw, 64px);
+      --paper: #ffffff;
+      --ink: #0B0A0A;
+      --mut: rgba(11,10,10,0.56);
+      --purple: #5B2557;
+      --blush: #F6DCE8;
+      --pantone-cloud-dancer: #f0eee9;
+      --pantone-mousse: #3e332e;
+      --pantone-chocolate-fondue: #43332b;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      color:var(--ink);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .serif{ font-family:'Fraunces', serif; font-weight:600; font-style:normal; letter-spacing:0; }
+    .serif-italic{ font-family:'Fraunces', serif; font-weight:500; font-style:italic; letter-spacing:0; }
+
+    .lab{
+      font-family:'Archivo', sans-serif;
+      font-weight:800;
+      font-size:60px;
+      letter-spacing:0.01em;
+      color:black;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      background:rgba(11,10,10,0.08);
+      backdrop-filter:blur(8px);
+      border-radius:13px;
+      padding:6px 13px 7px;
+      font-size:13px;
+      font-weight:500;
+      letter-spacing:0.01em;
+      transition:background 0.2s, color 0.2s;
+      white-space:nowrap;
+    }
+    .pill:hover{ background:var(--ink); color:var(--paper); }
+
+    hr.rule{ border:none; border-top:1px solid rgba(11,10,10,0.16); margin:0; }
+
+    /* ---------- HERO — word block ---------- */
+    .hero{
+      --bg:var(--paper);
+      --fg:var(--ink);
+      position:relative;
+      min-height:100svh;
+      display:flex;
+      flex-direction:column;
+      background:var(--bg);
+      color:var(--fg);
+      transition:background 0.6s ease, color 0.6s ease;
+      padding: 0 var(--pad) 24px;
+      cursor:default;
+    }
+    .hero:hover{
+      --bg:#251e1a;
+      --fg:var(--pantone-cloud-dancer);
+    }
+
+    .hero-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: var(--pad) 0;
+      z-index:5;
+      flex:none;
+    }
+    .wordmark{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.01em;
+    }
+    .nav-pills{ display:flex; gap:8px; }
+    .hero .pill{
+      background:color-mix(in srgb, var(--fg) 12%, transparent);
+      color:var(--fg);
+    }
+    .hero .pill:hover{ background:var(--fg); color:var(--bg); }
+
+    .word-block{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:5px;
+      padding: 20px calc(var(--pad) + 8px);
+      -webkit-user-select:none;
+      user-select:none;
+      min-height:0;
+    }
+    .wrow{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      flex-wrap:nowrap;
+      gap:6px 16px;
+      width:100%;
+      min-width:0;
+      padding:6px 0;
+    }
+    .wrow.center{ justify-content:center; }
+    .wrow.wrap{ flex-wrap:wrap; }
+    .w{
+      display:inline-block;
+      font-family:'Archivo', sans-serif;
+      font-weight:800;
+      letter-spacing:-0.01em;
+      white-space:nowrap;
+      line-height:0.92;
+      transform-origin:center center;
+      transition:transform 0.5s cubic-bezier(.16,1,.3,1), opacity 0.5s ease;
+      will-change:transform;
+      padding-right: 15px;
+    }
+    .w:hover{
+      transform:scale(1.16);
+      position:relative;
+      z-index:2;
+    }
+    .w.quiet{ font-weight:500; letter-spacing:0.01em; opacity:0.55; }
+
+    .hero-foot{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      padding-top: 28px;
+      z-index:5;
+    }
+    .hero-foot .col{ display:flex; flex-direction:column; gap:4px; }
+    .scroll-hint{
+      font-size:13px;
+      opacity:0.5;
+      transition:opacity 0.2s;
+    }
+    .scroll-hint:hover{ opacity:1; }
+    .wordmark{ transition:opacity 0.2s; }
+    .wordmark:hover{ opacity:0.6; }
+
+    /* ---------- LAVORI (index) ---------- */
+    .section{ padding: 350px var(--pad);
+      padding-top: 150px; }
+
+    #lavori{ padding-bottom: 120px; }
+
+    .aboutme {
+      padding: 150px var(--pad);
+    }
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      margin-bottom:36px;
+      padding-top:16px;
+    }
+    .section-head .lab{ color:var(--ink); font-weight:600; }
+    .count{ font-size:13px; color:var(--mut); }
+
+    .gallery{
+      display:flex;
+      align-items:flex-end;
+      gap:14px;
+      overflow-x:auto;
+      overflow-y:visible;
+      padding-bottom:10px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .gallery::-webkit-scrollbar{ display:none; }
+    .gcard{
+      position:relative;
+      display:block;
+      flex:none;
+      overflow:hidden;
+      border-radius:3px;
+      cursor:pointer;
+      background:rgba(11,10,10,0.06);
+      transition:margin 0.45s cubic-bezier(.16,1,.3,1), transform 0.45s cubic-bezier(.16,1,.3,1);
+    }
+    .gcard:hover{
+      margin:0 60px;
+      transform:scale(1.18) translateY(-14px);
+      z-index:3;
+    }
+    .gcard-cap{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding:8px 10px 7px;
+      background:linear-gradient(to top, rgba(74,30,69,0.88), rgba(74,30,69,0));
+      color:var(--blush);
+      font-size:11px;
+      line-height:1.3;
+      opacity:0;
+      transition:opacity 0.25s;
+      pointer-events:none;
+    }
+    .gcard-cap b{ display:block; font-weight:600; font-size:11.5px; }
+    .gcard-cap span{ opacity:0.8; }
+    .gcard:hover .gcard-cap{ opacity:1; }
+
+    /* ---------- VIDEO BANNER ---------- */
+    .video-banner{
+      position:relative;
+      width:100%;
+      height:clamp(280px, 46vw, 560px);
+      overflow:hidden;
+      background:#0B0A0A;
+    }
+    .banner-video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .banner-label{
+      position:absolute;
+      left:var(--pad);
+      bottom:18px;
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      color:#F2EFEA;
+      z-index:2;
+    }
+    .banner-label .lab{ color:rgba(242,239,234,0.72); }
+    .banner-label .serif-italic{ font-size:15px; color:#F2EFEA; }
+
+    /* ---------- EXHIBITIONS (scomposto) ---------- */
+    .exh-head{ display:flex; align-items:flex-end; gap:0.25em; }
+    .exh-head .exh-arrow-icon{ width:clamp(28px,3.2vw,46px); height:clamp(28px,3.2vw,46px); margin-bottom:0.1em; flex:none; }
+    .exh-role{
+      font-family:'Inter', sans-serif;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      color:var(--ink);
+      margin-top:28px;
+    }
+    .exh-role.second{ 
+      margin-top:10%; 
+      margin-bottom: 10%;
+      font-family:'Archivo', sans-serif;
+      font-weight:800;
+      font-size:40px;
+      letter-spacing:0.01em;
+      color:black;
+      }
+
+    .exh-scatter{ position:relative; margin-top:48px; }
+    .exh-entry{ max-width:460px; margin-bottom:52px; }
+    .exh-entry .exh-name{ font-family:'Inter', sans-serif; font-weight:600; line-height:1.35; }
+    .exh-entry .exh-name.xl{ font-family:'Archivo', sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; font-size:clamp(20px,2.6vw,32px); line-height:1.1; }
+    .exh-entry .exh-name.lg{ font-size:19px; }
+    .exh-entry .exh-name.md{ font-size:16px; }
+    .exh-entry .exh-name.sm{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:15px; text-transform:none; }
+    .exh-entry .exh-meta{
+      font-family:'Fraunces', serif;
+      font-style:italic;
+      font-weight:500;
+      font-size:13.5px;
+      color:var(--mut);
+      line-height:1.55;
+      margin-top:6px;
+    }
+    .exh-entry .exh-extra{ font-family:'Inter',sans-serif; font-size:13px; line-height:1.6; color:var(--mut); margin-top:10px; }
+    .exh-entry .exh-extra a{ border-bottom:1px solid rgba(11,10,10,0.3); transition:opacity 0.2s; }
+    .exh-entry .exh-extra a:hover{ opacity:0.55; }
+
+    .exh-solo{
+      display:flex;
+      align-items:flex-start;
+      gap:40px;
+      max-width:720px;
+    }
+    .exh-solo img{ width:220px; flex:none; border-radius:2px; }
+    .exh-solo .exh-name{ font-size:17px; }
+    .exh-solo .exh-meta{ font-size:14px; }
+    .exh-solo .exh-body{ font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.7; margin-top:14px; color:var(--ink); }
+
+    /* ---------- EXHIBITION PANELS — WALKTHROUGH ROOM ---------- */
+    .panels-room-wrap{ margin-top:100px; }
+    .panels-intro{ max-width:640px; }
+    .panels-desc{
+      font-family:'Inter', sans-serif;
+      font-size:14.5px;
+      line-height:1.7;
+      color:var(--mut);
+      margin:8px 0 0;
+    }
+    .panels-desc em{ color:var(--ink); }
+
+    .panels-progress{
+      position:relative;
+      max-width:280px;
+      height:2px;
+      background:rgba(11,10,10,0.14);
+      margin-top:20px;
+      border-radius:2px;
+    }
+    .panels-progress-dot{
+      position:absolute;
+      top:50%;
+      left:0;
+      width:8px; height:8px;
+      border-radius:50%;
+      background:var(--purple);
+      transform:translate(-50%,-50%);
+      transition:left 0.1s linear;
+    }
+
+    .panels-room{
+      position:relative;
+      width:100vw;
+      left:50%;
+      margin-left:-50vw;
+      height:clamp(320px, 54vw, 440px);
+      margin-top:32px;
+      background:white;
+      overflow:hidden;
+    }
+    .panels-floor{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:26%;
+      background:white;
+      box-shadow: inset 0 1px 0 rgba(11,10,10,0.1);
+    }
+    .panels-track{
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      align-items:center;
+      gap:clamp(40px, 6vw, 96px);
+      padding:0 26vw;
+      overflow-x:auto;
+      overflow-y:hidden;
+      scroll-snap-type:x proximity;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      cursor:grab;
+      user-select:none;
+    }
+    .panels-track::-webkit-scrollbar{ display:none; }
+    .panels-track.dragging{ cursor:grabbing; scroll-snap-type:none; }
+
+    .panel-frame{
+      flex:none;
+      scroll-snap-align:center;
+      width:min(62vw, 460px);
+      background:#fff;
+      padding:12px 12px 34px;
+      border-radius:2px;
+      box-shadow:0 22px 44px -18px rgba(11,10,10,0.38), 0 2px 6px rgba(11,10,10,0.12);
+      transition:transform 0.15s linear, opacity 0.15s linear;
+      will-change:transform, opacity;
+      pointer-events:none;
+    }
+    .panel-frame img{
+      width:100%;
+      aspect-ratio:1.875/1;
+      object-fit:cover;
+      display:block;
+      -webkit-user-drag:none;
+    }
+    .panel-plate{
+      display:block;
+      margin-top:12px;
+      text-align:center;
+      font-family:'Fraunces', serif;
+      font-style:italic;
+      font-weight:500;
+      font-size:12.5px;
+      color:var(--mut);
+    }
+    .panel-read{
+      display:block;
+      margin:6px auto 0;
+      text-align:center;
+      font-family:'Inter', sans-serif;
+      font-weight:600;
+      font-size:10.5px;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      color:var(--purple);
+      background:none;
+      border:none;
+      padding:4px 2px;
+      cursor:pointer;
+      pointer-events:auto;
+      transition:opacity 0.2s;
+    }
+    .panel-read:hover{ opacity:0.6; }
+
+    .panel-modal-overlay{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:50;
+      background:rgba(11,10,10,0.6);
+      padding:5vh 20px;
+      overflow-y:auto;
+    }
+    .panel-modal-overlay.open{ display:block; }
+    .panel-modal{
+      position:relative;
+      max-width:680px;
+      margin:0 auto;
+      background:var(--paper);
+      border-radius:4px;
+      padding:44px var(--pad) 56px;
+    }
+    .panel-modal-close{
+      position:absolute;
+      top:16px; right:16px;
+      width:34px; height:34px;
+      border-radius:50%;
+      border:1px solid rgba(11,10,10,0.18);
+      background:transparent;
+      font-size:18px;
+      line-height:1;
+      cursor:pointer;
+      color:var(--ink);
+      transition:background 0.2s;
+    }
+    .panel-modal-close:hover{ background:rgba(11,10,10,0.06); }
+    .panel-modal-title{
+      font-family:'Archivo', sans-serif;
+      font-weight:800;
+      font-size:clamp(20px,3vw,28px);
+      letter-spacing:-0.005em;
+      max-width:520px;
+    }
+    .panel-modal .lang-toggle{
+      display:flex;
+      gap:8px;
+      margin-top:18px;
+    }
+    .panel-modal .lang-btn{
+      font-family:'Inter', sans-serif;
+      font-weight:600;
+      font-size:12px;
+      letter-spacing:0.02em;
+      padding:7px 16px;
+      border-radius:100px;
+      border:1px solid rgba(11,10,10,0.2);
+      background:transparent;
+      color:var(--mut);
+      cursor:pointer;
+      transition:background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .panel-modal .lang-btn.active{
+      background:var(--ink);
+      color:var(--paper);
+      border-color:var(--ink);
+    }
+    .panel-modal-body{
+      margin-top:26px;
+      font-size:15.5px;
+      line-height:1.75;
+      color:var(--ink);
+    }
+    .panel-modal-body[hidden]{ display:none; }
+    .panel-modal-body p{ margin:0 0 18px; }
+    .panel-modal-body em{ font-family:'Fraunces', serif; font-style:italic; }
+    .panel-modal-credit{
+      margin-top:8px;
+      font-family:'Fraunces', serif;
+      font-style:italic;
+      font-weight:500;
+      font-size:13px;
+      color:var(--mut);
+    }
+    @media (max-width:720px){
+      .panel-modal{ padding:40px 20px 48px; }
+    }
+
+    .panels-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:3;
+      width:44px; height:44px;
+      border-radius:50%;
+      border:1px solid rgba(11,10,10,0.18);
+      background:rgba(255,255,255,0.78);
+      backdrop-filter:blur(6px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      cursor:pointer;
+      transition:background 0.2s, opacity 0.2s;
+    }
+    .panels-nav:hover{ background:var(--paper); }
+    .panels-nav.prev{ left:var(--pad); }
+    .panels-nav.next{ right:var(--pad); }
+
+    .panels-hint{
+      position:absolute;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      z-index:3;
+      font-family:'Inter', sans-serif;
+      font-size:11px;
+      font-weight:500;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+      color:var(--mut);
+      background:rgba(255,255,255,0.7);
+      padding:6px 14px;
+      border-radius:100px;
+      transition:opacity 0.4s;
+      pointer-events:none;
+    }
+    .panels-hint.hidden{ opacity:0; }
+
+    /* ---------- BIOGRAFIA / CONTATTI ---------- */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap:40px;
+    }
+    .bio-text{ font-size:15px; line-height:1.7; max-width:640px; }
+    .bio-text p{ margin:0 0 16px; }
+
+    .contact-links{ display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+    .contact-links a{ font-size:15px; }
+    .contact-links a:hover{ opacity:0.5; }
+
+    .contact-box {
+      height: 800px;
+    }
+
+    .colophon{
+      display:flex;
+      justify-content:space-between;
+      padding: 20px var(--pad) 32px;
+      font-size:11px;
+      color:var(--mut);
+    }
+
+    #contatti {
+      background-color: black;
+      color: white;
+    }
+
+    #contatti span {
+      color: white;
+    }
+
+    @media (max-width:720px){
+      .hero{ padding:104px calc(var(--pad) + 4px) 96px; }
+      .word-block{ padding:16px calc(var(--pad) + 4px); gap:10px; }
+      .wrow{ gap:4px 10px; flex-wrap:wrap; }
+      .hero-foot{ flex-direction:column; align-items:flex-start; gap:16px; }
+      .two-col{ grid-template-columns:1fr; gap:20px; }
+      .gallery{ gap:10px; }
+      .colophon{ flex-direction:column; gap:6px; }
+      .video-banner{ height:clamp(200px, 62vw, 380px); }
+      .banner-label{ left:calc(var(--pad) - 4px); bottom:12px; }
+      .exh-entry{ max-width:100%; margin-left:0 !important; text-align:left !important; }
+      .exh-solo{ flex-direction:column; gap:16px; }
+      .exh-solo img{ width:180px; }
+      .panels-room{ height:clamp(300px, 88vw, 440px); }
+      .panels-track{ padding:0 10vw; gap:28px; }
+      .panel-frame{ width:78vw; padding:8px 8px 26px; }
+      .panels-nav{ width:36px; height:36px; font-size:14px; }
+      .panels-nav.prev{ left:8px; }
+      .panels-nav.next{ right:8px; }
+      .exh-role .second{ margin-left:0%; }
+    }
+  </style>
+</head>
+<body>
+<!-- ================= HERO — parole sparse ================= -->
+<section class="hero">
+  <div class="hero-nav">
+    <a class="wordmark" href="#">Giorgia Migliorini</a>
+    <div class="nav-pills">
+      <a class="pill" href="#lavori">Projects</a>
+      <a class="pill" href="#contatti">Contact</a>
+    </div>
+  </div>
+
+  <div class="word-block">
+    <div class="wrow">
+      <a class="w" style="font-size:clamp(32px,8vw,108px);" href="#biografia">GIORGIA</a>
+      <a class="w serif-italic" style="font-size:clamp(30px,7.2vw,100px); font-weight:500;" href="#biografia">Migliorini</a>
+    </div>
+    <div class="wrow wrap">
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.8vw,20px);" href="#biografia">transversal skills</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.8vw,20px);" href="#lavori">translation</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.8vw,20px);" href="#lavori">proofreading</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.8vw,20px);" href="#lavori">developer</a>
+    </div>
+    <div class="wrow wrap">
+      <a class="w" style="font-size:clamp(20px,4.4vw,60px);" href="#lavori">CURATORSHIP</a>
+      <a class="w serif-italic" style="font-size:clamp(15px,2.4vw,30px); font-weight:500;" href="#lavori">editorial production</a>
+      <a class="w" style="font-size:clamp(18px,3.8vw,54px);" href="#lavori">DEVELOPER</a>
+    </div>
+    <div class="wrow wrap">
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">writing</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">seo-optimization</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">designing</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">editing</a>
+    </div>
+    <div class="wrow wrap">
+      <a class="w serif-italic" style="font-size:clamp(28px,6.5vw,90px); font-weight:600;" href="#lavori">Chasing stories</a>
+      <a class="w" style="font-size:clamp(16px,3.5vw,50px); font-weight:700;" href="#lavori">CREATIVITY</a>
+    </div>
+    <div class="wrow wrap">
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">text encoding</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">care for detail</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#lavori">digital philology</a>
+      <a class="w quiet serif-italic" style="font-size:clamp(14px,1.6vw,17px);" href="#exhibitions">exhibitions</a>
+    </div>
+    <div class="wrow center">
+      <span class="w serif-italic" style="font-size:clamp(40px,13vw,168px); font-weight:500;">care</span>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="col">
+      <a href="#" target="_blank">Instagram</a>
+      <a href="mailto:gio.miglio@icloud.com">gio.miglio@icloud.com</a>
+    </div>
+    <div class="col" style="align-items:flex-end;">
+      <a class="scroll-hint" href="#lavori">Scroll ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="lavori">
+  <div class="section-head">
+    <span class="lab">Projects</span>
+    <span class="count">11 works · scroll →</span>
+  </div>
+
+  <div class="gallery">
+    <a class="gcard" href="seracini.html" id="work-seracini" style="height:207px; width:147px;">
+      <img src="seracini.jpg" alt="Seracini">
+      <span class="gcard-cap"><b>Maurizio Seracini</b><span>Interview — FUL Magazine</span></span>
+    </a>
+    <a class="gcard" href="artviva.html" id="work-artviva" style="height:129px; width:233px;">
+      <img src="artviva.jpg" alt="Artviva">
+      <span class="gcard-cap"><b>Artviva</b><span>Content strategy & copywriting</span></span>
+    </a>
+    <a class="gcard" href="mille-navi.html" id="work-millenavi" style="height:219px; width:179px;">
+      <img src="mille-navi.jpg" alt="Mille Navi Ancora">
+      <span class="gcard-cap"><b>Mille Navi Ancora</b><span>Interview & report — Rivista Stanca</span></span>
+    </a>
+    <a class="gcard" href="books.html#nutrire-dio" id="work-nutriredio" style="height:136px; width:221px;">
+      <img src="nutrire-dio.jpg" alt="Nutrire Dio">
+      <span class="gcard-cap"><b>Nutrire Dio</b><span>Editorial production</span></span>
+    </a>
+    <a class="gcard" href="books.html#presenza-fare" id="work-presenzafare" style="height:136px; width:221px;">
+      <img src="presenza-fare.jpg" alt="La Presenza e il Fare">
+      <span class="gcard-cap"><b>La Presenza e il Fare</b><span>Editorial production</span></span>
+    </a>
+    <a class="gcard" href="feeding-god.html" id="work-feedinggod" style="height:213px; width:160px;">
+      <img src="feeding-god.jpg" alt="Feeding God">
+      <span class="gcard-cap"><b>Digitalization</b><span>Fondazione Scabia - Archive</span></span>
+    </a>
+    <a class="gcard" href="through-the-gaze.html" id="work-throughthegaze" style="height:196px; width:138px;">
+      <img src="through-the-gaze.jpg" alt="Through the Gaze">
+      <span class="gcard-cap"><b>Through the Gaze</b><span>Translation — exhibition</span></span>
+    </a>
+    <a class="gcard" href="books.html#braslavsky" id="work-braslavsky" style="height:184px; width:136px;">
+      <img src="braslavsky.jpg" alt="Braslavsky">
+      <span class="gcard-cap"><b>Braslavsky</b><span>Editorial project</span></span>
+    </a>
+    <a class="gcard" href="carolina.html" id="work-carolina" style="height:173px; width:127px;">
+      <img src="carolina.jpg" alt="Carolina">
+      <span class="gcard-cap"><b>Carolina</b><span>Editorial project</span></span>
+    </a>
+    <a class="gcard" href="books.html#marcocavallo" id="work-marcocavallo" style="height:161px; width:129px;">
+      <img src="marcocavallo.jpg" alt="Marco Cavallo per immagini">
+      <span class="gcard-cap"><b>Marco Cavallo per immagini</b><span>Editorial project</span></span>
+    </a>
+    <a class="gcard" href="books.html#mongolfiere" id="work-mongolfiere" style="height:206px; width:158px;">
+      <img src="mongolfiere.jpg" alt="Mongolfiere e macchine volanti">
+      <span class="gcard-cap"><b>Mongolfiere e macchine volanti</b><span>Editorial production</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= VIDEO BANNER ================= -->
+<section class="video-banner">
+  <video class="banner-video" autoplay muted loop playsinline preload="auto">
+    <source src="bannervideo1.webm" type="video/webm">
+    <source src="bannervideo1.mp4" type="video/mp4">
+  </video>
+  <!--
+  <div class="banner-label">
+    <span class="lab">Fragments</span>
+    <span class="serif-italic">a moment, in motion</span>
+  </div>-->
+</section>
+
+<!-- ================= BIOGRAPHY ================= -->
+<section class="section aboutme" id="biografia">
+  <div class="two-col">
+    <span class="lab">About Me</span>
+    <div class="bio-text">
+      <p>Giorgia Migliorini is an editor, proofreader, copywriter, and layout designer working across print and digital publishing. Her work spans curatorship, from exhibition concept to design and installation, alongside proofreading, translation, and editorial production for publishing houses, cultural foundations and magazines. She writes for her own projects, but also knows how to manage relations with writers and curators. Her editorial and design skills extend into digital publishing and content strategy, from web development and multimedia content to SEO and digital campaigns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXHIBITIONS ================= -->
+<section class="section" id="exhibitions">
+  <div class="exh-head" style="margin-left:6%;">
+    <span class="lab">Exhibitions</span>
+    <!--<svg class="exh-arrow-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 10 L37 37 M37 22 L37 37 L22 37" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>-->
+  </div>
+
+  <div class="exh-scatter" style="margin-left:22%;">
+    <div class="exh-role">Graphic designer and assistant curator for</div>
+
+    <div class="exh-entry" style="margin-left:0;">
+      <div class="exh-name xl">&ldquo;Feeding God: Mysticism and Mischief in Giuliano Scabia&rdquo;</div>
+      <div class="exh-meta">Curated by Andrea Mancini.<br>Murate Art District (M.A.D.), Florence, June 11&ndash;July 16, 2025.</div>
+      <div class="exh-extra">As part of Estate Fiorentina 2025, the project expanded into a public roundtable, two publications, and eight theatrical performances inspired by the work of Giuliano Scabia.</div>
+    </div>
+
+    <div class="exh-entry" style="margin-left:0%; text-align:right;">
+      <div class="exh-name sm">&ldquo;New Music, New Theatre: Luigi Nono / Giuliano Scabia&rdquo;</div>
+      <div class="exh-meta">Curated by Andrea Mancini.<br>Teatro del Giglio, Lucca, June 14&ndash;27, 2024.</div>
+    </div>
+
+    <div class="exh-entry" style="margin-left:0%;">
+      <div class="exh-name lg">&ldquo;Giuliano Scabia and Franco Basaglia: Travelling Alongside Madness&rdquo;</div>
+      <div class="exh-meta">Curated by Andrea Mancini.<br>Murate Art District (M.A.D.), Florence, August 29&ndash;September 26, 2024.</div>
+      <div class="exh-extra">Staged alongside publications on Scabia's work, including <a href="https://www.quodlibet.it/libro/9788822921499" target="_blank" rel="noopener"><em class="serif-italic">Riga 47</em></a> (Quodlibet) and a new edition of <a href="https://www.meltemieditore.it/catalogo/marco-cavallo/" target="_blank" rel="noopener"><em class="serif-italic">Marco Cavallo</em></a> (Meltemi).</div>
+    </div>
+
+    <div class="exh-entry" style="margin-left:0%; text-align:right;">
+      <div class="exh-name sm">&ldquo;The All-Hearing Ear&rdquo;</div>
+      <div class="exh-meta">Concert by composer Claudio Ambrosini, based on texts by Giuliano Scabia and Ruzzante.<br>Teatro Comunale di Modena, September 29, 2025.</div>
+    </div>
+
+    <div class="exh-entry" style="margin-left:0%;">
+      <div class="exh-name md">&ldquo;The Wonderful Arts of Storytelling&rdquo;</div>
+      <div class="exh-meta">Educational workshop led by Antonio Utili.<br>Murate Art District (M.A.D.), Florence, October 26, 2025.</div>
+    </div>
+
+    <div class="exh-entry" style="margin-left:0%;">
+      <div class="exh-name xl">&ldquo;Forse un drago nascerà&rdquo;</div>
+      <div class="exh-meta">Curated by Andrea Mancini.<br>On the theatre of Giuliano Scabia. BiblioteCaNova Isolotto, Florence, September 19&ndash;October 19, 2026.</div>
+      <div class="exh-extra">Part of Estate Fiorentina 2026, marking five years since Giuliano Scabia's death, alongside the companion exhibition <em class="serif-italic">Commedia armoniosa per un drago nascente</em> at M.A.D. and the new book <a href="books.html#mongolfiere"><em class="serif-italic">Mongolfiere e macchine volanti</em></a>.</div>
+    </div>
+
+    <div class="exh-role second" style="margin-left:-22%;">Curator for</div>
+
+    <div class="exh-solo" style="margin-left:0%; margin-top:32px;">
+      <img src="through-the-gaze.jpg" alt="Through the Gaze — Graziana Ulivieri">
+      <div class="exh-solo-text">
+        <div class="exh-name">&ldquo;Through the Gaze&rdquo; &mdash; Solo Exhibition of Graziana Ulivieri</div>
+        <div class="exh-meta">Curated by Giorgia Migliorini.<br>March 29&ndash;April 12, 2025.</div>
+        <p class="exh-body">Organised in collaboration with Ibiskos Ulivieri Publishing House and the Figurative Arts Center of Empoli, exploring one of the most recurring themes in Graziana Ulivieri's artistic production: the representation of women and femininity, and the evolution of her visual language across different phases of her career.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels-room-wrap">
+    <div class="panels-intro" style="margin-left:6%;">
+      <div class="exh-name sm">Exhibition panels</div>
+      <p class="panels-desc">The informational panels I designed for <em class="serif-italic">Forse un drago nascerà</em>, on the theatre of Giuliano Scabia — BiblioteCaNova Isolotto, Florence, September&ndash;October 2026 &mdash; walk through them below. Panels 1&ndash;5 carry their full text in Italian, with an English translation available on click.</p>
+      <div class="panels-progress"><span class="panels-progress-dot" id="panelsProgressDot"></span></div>
+    </div>
+
+    <div class="panels-room" id="panelsRoom">
+      <div class="panels-floor"></div>
+      <button class="panels-nav prev" type="button" aria-label="Previous panel">&larr;</button>
+      <div class="panels-track" id="panelsTrack">
+        <div class="panel-frame"><img src="panels/panel-1.jpg" alt="Exhibition panel — Draghi con le ali" loading="lazy"><span class="panel-plate">Draghi con le ali</span><button type="button" class="panel-read" data-panel="1">Read the text &rarr;</button></div>
+        <div class="panel-frame"><img src="panels/panel-2.jpg" alt="Exhibition panel — Macchine volanti sulla città" loading="lazy"><span class="panel-plate">Macchine volanti sulla città</span><button type="button" class="panel-read" data-panel="2">Read the text &rarr;</button></div>
+        <div class="panel-frame"><img src="panels/panel-3.jpg" alt="Exhibition panel — Forse un drago nascerà" loading="lazy"><span class="panel-plate">Forse un drago nascerà</span><button type="button" class="panel-read" data-panel="3">Read the text &rarr;</button></div>
+        <div class="panel-frame"><img src="panels/panel-4.jpg" alt="Exhibition panel — Teatro come laboratorio aperto" loading="lazy"><span class="panel-plate">Teatro come laboratorio aperto</span><button type="button" class="panel-read" data-panel="4">Read the text &rarr;</button></div>
+        <div class="panel-frame"><img src="panels/panel-5.jpg" alt="Exhibition panel — Un'avventura educativa nel teatro di Giuliano Scabia" loading="lazy"><span class="panel-plate">Un'avventura educativa nel teatro di Giuliano Scabia</span><button type="button" class="panel-read" data-panel="5">Read the text &rarr;</button></div>
+        <div class="panel-frame"><img src="panels/panel-6.jpg" alt="Exhibition panel — archival photograph, Chieti, 20 April 1972" loading="lazy"><span class="panel-plate">Chieti, 20 aprile 1972</span></div>
+        <div class="panel-frame"><img src="panels/panel-7.jpg" alt="Exhibition panel — archival photograph, 24 May 1972" loading="lazy"><span class="panel-plate">24 maggio 1972</span></div>
+        <div class="panel-frame"><img src="panels/panel-8.jpg" alt="Exhibition panel — archival photograph, L'Aquila, building the dragon" loading="lazy"><span class="panel-plate">L'Aquila &mdash; III giorno, il drago per le strade</span></div>
+        <div class="panel-frame"><img src="panels/panel-9.jpg" alt="Exhibition panel — archival photograph, 25 May 1972" loading="lazy"><span class="panel-plate">25 maggio 1972</span></div>
+      </div>
+      <button class="panels-nav next" type="button" aria-label="Next panel">&rarr;</button>
+      <div class="panels-hint" id="panelsHint">Drag to walk through &rarr;</div>
+    </div>
+  </div>
+
+  <div class="panel-modal-overlay" id="panelModalOverlay">
+    <div class="panel-modal" role="dialog" aria-modal="true" aria-labelledby="panelModalTitle">
+      <button type="button" class="panel-modal-close" id="panelModalClose" aria-label="Close">&times;</button>
+      <div class="panel-modal-title" id="panelModalTitle"></div>
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="panelBtnIt">Italiano</button>
+        <button type="button" class="lang-btn" id="panelBtnEn">English</button>
+      </div>
+      <div class="panel-modal-body" id="panelModalBodyIt"></div>
+      <div class="panel-modal-body" id="panelModalBodyEn" hidden></div>
+      <div class="panel-modal-credit" id="panelModalCredit"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact-box" id="contatti">
+  <div class="two-col">
+    <span class="lab">Contact</span>
+    <div class="contact-links">
+      <a href="mailto:gio.miglio@icloud.com">gio.miglio@icloud.com</a>
+      <a href="#" target="www.linkedin.com/in/giorgia-migliorini-814294200">Linkedin</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+<div class="colophon" style="background-color: black; color: white;">
+  <span>Giorgia Migliorini © 2026</span>
+  <span>Personal Portfolio</span>
+</div>
+
+<script>
+(function(){
+  var block = document.querySelector('.word-block');
+  if(!block) return;
+  var words = Array.prototype.slice.call(block.querySelectorAll('.w'));
+  var PUSH_MIN = 70, PUSH_MAX = 240; // exaggerated push distance range, in px
+
+  function reset(){
+    words.forEach(function(w){ w.style.transform = ''; w.style.opacity = ''; });
+  }
+
+  var MARGIN = 12; // keep pushed words inside the word-block, clear of nav/foot
+
+  words.forEach(function(hovered){
+    hovered.addEventListener('mouseenter', function(){
+      var hr = hovered.getBoundingClientRect();
+      var hcx = hr.left + hr.width / 2, hcy = hr.top + hr.height / 2;
+      var br = block.getBoundingClientRect();
+      var minX = br.left + MARGIN, maxX = br.right - MARGIN;
+      var minY = br.top + MARGIN, maxY = br.bottom - MARGIN;
+      words.forEach(function(w){
+        if(w === hovered) return; // its own scale-up is handled by CSS :hover
+        var r = w.getBoundingClientRect();
+        var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        var dx = cx - hcx, dy = cy - hcy;
+        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var ux = dx / dist, uy = dy / dist;
+        var push = Math.max(PUSH_MIN, Math.min(PUSH_MAX, 26000 / dist));
+        // clamp the target position so pushed words stay inside the word block
+        var tx = Math.max(minX - cx, Math.min(maxX - cx, ux * push));
+        var ty = Math.max(minY - cy, Math.min(maxY - cy, uy * push));
+        w.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px)';
+        w.style.opacity = '0.16';
+      });
+    });
+    hovered.addEventListener('mouseleave', reset);
+  });
+})();
+
+(function(){
+  var room = document.getElementById('panelsRoom');
+  if(!room) return;
+  var track = document.getElementById('panelsTrack');
+  var frames = Array.prototype.slice.call(track.querySelectorAll('.panel-frame'));
+  var hint = document.getElementById('panelsHint');
+  var dot = document.getElementById('panelsProgressDot');
+  var prevBtn = room.querySelector('.panels-nav.prev');
+  var nextBtn = room.querySelector('.panels-nav.next');
+
+  function updateParallax(){
+    var tr = track.getBoundingClientRect();
+    var centerX = tr.left + tr.width / 2;
+    frames.forEach(function(f){
+      var fr = f.getBoundingClientRect();
+      var fcx = fr.left + fr.width / 2;
+      var dist = Math.abs(fcx - centerX);
+      var norm = Math.min(1, dist / (tr.width / 2));
+      var scale = 1 - norm * 0.22;
+      var opacity = 1 - norm * 0.55;
+      f.style.transform = 'scale(' + scale.toFixed(3) + ')';
+      f.style.opacity = Math.max(0.35, opacity).toFixed(2);
+    });
+  }
+
+  function updateProgress(){
+    if(!dot) return;
+    var max = track.scrollWidth - track.clientWidth;
+    var ratio = max > 0 ? track.scrollLeft / max : 0;
+    dot.style.left = (Math.max(0, Math.min(1, ratio)) * 100) + '%';
+  }
+
+  var raf = null;
+  function onScroll(){
+    if(hint) hint.classList.add('hidden');
+    if(raf) return;
+    raf = requestAnimationFrame(function(){
+      updateParallax();
+      updateProgress();
+      raf = null;
+    });
+  }
+  track.addEventListener('scroll', onScroll, {passive:true});
+
+  // drag to scroll with mouse / trackpad (touch uses native scrolling)
+  var isDown = false, startX = 0, startScroll = 0;
+  track.addEventListener('pointerdown', function(e){
+    if(e.pointerType === 'touch') return;
+    isDown = true;
+    startX = e.clientX;
+    startScroll = track.scrollLeft;
+    track.classList.add('dragging');
+    try{ track.setPointerCapture(e.pointerId); }catch(err){}
+  });
+  track.addEventListener('pointermove', function(e){
+    if(!isDown) return;
+    track.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  function endDrag(){
+    isDown = false;
+    track.classList.remove('dragging');
+  }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointerleave', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+
+  // let vertical wheel/trackpad motion move the room sideways too
+  track.addEventListener('wheel', function(e){
+    if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+      track.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }
+  }, {passive:false});
+
+  function step(dir){
+    var w = frames[0] ? frames[0].getBoundingClientRect().width : 300;
+    var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 64;
+    track.scrollBy({ left: dir * (w + gap), behavior:'smooth' });
+  }
+  if(prevBtn) prevBtn.addEventListener('click', function(){ step(-1); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ step(1); });
+
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+  updateProgress();
+
+  // "read the text" buttons open the panel modal; stop the click reaching
+  // the track's own pointerdown/drag handling above.
+  var readBtns = Array.prototype.slice.call(room.querySelectorAll('.panel-read'));
+  readBtns.forEach(function(btn){
+    btn.addEventListener('pointerdown', function(e){ e.stopPropagation(); });
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      openPanelModal(btn.getAttribute('data-panel'));
+    });
+  });
+})();
+
+(function(){
+  var panelTexts = {
+    '1': {
+      title: 'Draghi con le ali',
+      credit: { it: 'Foto di Dario Cipressi', en: 'Photo by Dario Cipressi' },
+      it: [
+        "Su uno dei Quaderni di Drammaturgia, che Scabia e i suoi studenti hanno autopubblicato, c'è un paragrafo intitolato <em>Draghi con le ali</em>. Il testo uscì come introduzione di uno scritto di Alfredo De Paz per il Collettivo del Drago di Bologna, nato in quei giorni tragici come l'11 marzo 1977 quando, durante una manifestazione, lo studente Francesco Lo Russo fu ucciso da un carabiniere di leva.",
+        "Lo stesso Scabia scrive:",
+        "«Mi piaceva, qualche anno fa, seminare draghi, vederli nascere, portarli a correre sotto il mutevole cielo. Ora è sempre più frequente incontrare un drago. Mi capita quasi ogni giorno: draghi astuti o stupidi, con teste enormi o senza capo né coda. Mi chiedo sempre, prima di cominciare un colloquio con un nuovo drago: qual è la testa, qual è la coda, che lingua parla, il corpo cosa contiene? Io consiglierei a tutti di imparare la lingua dei draghi. Stando con loro, magari dentro di loro, si fanno incredibili viaggi. Viaggi del corpo, viaggi della mente. Ci sono anche draghi con le ali. Sono i più felici.»"
+      ],
+      en: [
+        "In one of the <em>Quaderni di Drammaturgia</em> [Dramaturgy Notebooks], which Scabia and his students self-published, there is a paragraph titled <em>Draghi con le ali</em> [Dragons with Wings]. The text appeared as the introduction to a piece written by Alfredo De Paz for the Collettivo del Drago di Bologna [Dragon Collective of Bologna], born in those tragic days around 11 March 1977, when, during a demonstration, the student Francesco Lo Russo was killed by a conscript carabiniere.",
+        "Scabia himself writes:",
+        "\"A few years ago I liked sowing dragons, watching them being born, taking them out to run beneath the changeable sky. Now it is more and more frequent to meet a dragon. It happens to me almost every day: cunning or stupid dragons, with enormous heads or with neither head nor tail. Before starting a conversation with a new dragon, I always ask myself: which is the head, which is the tail, what language does it speak, what does its body contain? I would advise everyone to learn the language of dragons. Staying with them, perhaps inside them, one goes on incredible journeys. Journeys of the body, journeys of the mind. There are also dragons with wings. They are the happiest.\""
+      ]
+    },
+    '2': {
+      title: 'Macchine volanti sulla città',
+      credit: { it: 'Foto di Maurizio Conca', en: 'Photo by Maurizio Conca' },
+      it: [
+        "Su quegli stessi temi Scabia scrisse un articolo su Paese Sera, intitolato <em>Quando fuggii da Bologna con una macchina volante</em> (giugno 1977). «Era l'aria ancora incrinata di una città ferita» &ndash; diceva Scabia &ndash; «e di un giovane morto non pacificato».",
+        "Scabia aveva progettato un corso, che fu poi modificato: in quei \"giorni cupi\" qualcosa doveva accadere.",
+        "«Sconvolti i cardini dei giovani, assalita dal dubbio una popolazione mite, con immagini piene di ansia, un non capire di colpo la nuova generazione, soprattutto le migliaia di stranieri, la città studentesca estranea e ostile. Università occupata e bloccata. Guerriglia. Fuochi, Perdita di senso. Avventura apparentemente felice, in realtà disperata. Bologna 1977. Era appena finita l'occupazione e si stava tentando di ricominciare. Volevo lavorare sullo spazio, e con Antonio Utili, collaboratore, scenografo, proposi ai molti studenti che aspettavano di costruire ciascuno una mongolfiera, come un burattino da far recitare in cielo.»",
+        "Un cielo usato come fosse un teatro. Una città che diventava scena, come era successo già molte altre volte, per esempio in Abruzzo per \"Forse un drago nascerà\".",
+        "In effetti le Mongolfiere si libravano nell'aria, riempivano quel cielo di speranza.",
+        "«Vola sopra i tetti e tutti correvano oltre, passò di là di una cordigliera di case, la rivedemmo nella via parallela. Saliva e scendeva accarezzando l'aria, ascoltando i piccoli venti. Entrò per la grande finestra in una delle banche di piazza Malpighi, tornò fuori, scese lentamente a farsi riprendere dalle nostre mani riconoscenti. Bisognava lanciarla di nuovo, se amava così tanto volare. Allora vado di qua e di là in cerca di qualche legno per fare il fuoco. Entro in un bar e chiedo: avete una cassetta da frutta, dobbiamo lanciare una mongolfiera, il fuoco. La domanda doveva apparire ben strana. Come reagiranno dopo due mesi di sconvolgimenti? Reagì con gentilezza il proprietario andando a prendere una cassetta da frutta, come se fosse azione naturale lanciare mongolfiere là in Bologna. Di colpo sentii di nuovo ricucito il tessuto accogliente e disponibile della città cara. Le prove per strada, le improvvisazioni, le lezioni in piazza: Bologna era stata per il mio lavoro (parlo delle strade e delle case, delle piazze e dei portici) il teatro naturale: lo spettacolo del Gorilla era nato sulla scalinata di san Petronio.»"
+      ],
+      en: [
+        "On these same themes Scabia wrote an article for Paese Sera, titled <em>Quando fuggii da Bologna con una macchina volante</em> [When I fled Bologna with a flying machine] (June 1977). \"The air was still cracked from a wounded city,\" said Scabia, \"and from a young man dead and not at peace.\"",
+        "Scabia had planned a course, which was later changed: in those \"dark days\" something had to happen.",
+        "\"The hinges of the young were shattered, a mild population assailed by doubt, images full of anxiety, a sudden failure to understand the new generation, above all the thousands of foreigners, the student city made alien and hostile. The university occupied and blockaded. Guerrilla warfare. Fires. A loss of meaning. An adventure apparently joyful, in reality desperate. Bologna 1977. The occupation had just ended and an attempt was being made to start again. I wanted to work on space, and together with Antonio Utili, collaborator and set designer, I proposed to the many students who were waiting that each of them build a hot-air balloon, like a puppet to be made to perform in the sky.\"",
+        "A sky used as if it were a theatre. A city that became a stage, as had already happened many other times, for example in Abruzzo for \"Forse un drago nascerà\" [Perhaps a Dragon Will Be Born].",
+        "Indeed the hot-air balloons hovered in the air, filling that sky with hope.",
+        "\"It flies over the rooftops and everyone ran on past, it went beyond a ridge of houses, we saw it again in the parallel street. It rose and fell, caressing the air, listening to the small winds. It went in through the great window of one of the banks in Piazza Malpighi, came back out, descended slowly to be caught again by our grateful hands. It had to be launched again, since it loved flying so much. So I go here and there looking for some wood to make the fire. I go into a bar and ask: do you have a fruit crate, we need to launch a hot-air balloon, the fire. The question must have seemed quite strange. How would people react after two months of upheaval? The owner reacted kindly, going to fetch a fruit crate, as if launching hot-air balloons there in Bologna were the most natural thing to do. Suddenly I felt the welcoming, generous fabric of the beloved city stitched back together. The rehearsals in the street, the improvisations, the lessons in the square: Bologna had been, for my work (I mean the streets and the houses, the squares and the porticoes), the natural theatre: the show of the Gorilla was born on the steps of San Petronio.\""
+      ]
+    },
+    '3': {
+      title: 'Forse un drago nascerà',
+      credit: { it: 'Foto di Dario Cipressi / Foto di Cesidio Gualtieri', en: 'Photo by Dario Cipressi / Photo by Cesidio Gualtieri' },
+      it: [
+        "Dall'aprile al maggio 1972, Scabia va in Abruzzo a lavorare per il Teatro Stabile dell'Aquila. Lui e alcuni suoi collaboratori mettono a disposizione dei ragazzi provenienti da dodici luoghi diversi un Teatro Vagante, costituito da un furgone mascherato, contenente gli oggetti con cui i ragazzi lavoreranno:",
+        "«colori, pennelli, carte e plastiche colorate, collanti, forbici, cucitrici, macchina per scrivere, ciclostile, magnetofono portatile, tubi e giunti modulari per costruzioni, scale, pedane, elementi per il drago, teatrini per burattini, maschere, costumi ecc.»",
+        "L'elenco è inserito da Scabia in calce al suo libro omonimo, pubblicato dalla Emme di Rosellina Archinto nel 1974. Questo con un intento didattico nei confronti delle migliaia di persone che ne avrebbero subito dopo seguito le orme, in progetti che hanno invaso le piazze e le strade di tutta Italia, così come le scuole e le biblioteche. Fu una stagione di straordinarie azioni teatrali, che hanno rivoluzionato sia il teatro che la scuola. Una stagione di cui ancora oggi possiamo cogliere i frutti.",
+        "In ognuna delle città coinvolte, il lavoro seguiva uno \"schema vuoto\", fatto &ndash; un po' come nella commedia dell'arte &ndash; di una serie di titoli indicativi, modificabili di volta in volta, nei tre giorni di svolgimento dell'azione. C'era all'inizio il \"mercato del teatro\", poi altri elementi che potevano variare come \"introduzione degli oggetti\", \"il fondatore della città\", \"nascita della città\", \"nascita dei pupi\", \"il giornale della città\", \"descrizione degli avvenimenti\", \"azione dei pupi\", \"il teatro\", \"costruzione e uscita del drago\", \"il cavaliere fantastico\" e infine \"come continuare dopo la partenza del laboratorio aperto\".",
+        "Lo schema cambiava a seconda dei luoghi e degli incontri preliminari e successivi, così come verrà raccontato nel libro del 1974, ripubblicato da Babalibri nel 2022, attraverso un ampio repertorio di materiali fotografici dovuti a Sebastiana Papa (autrice in seguito dei meravigliosi scatti per <em>Il Diavolo e il suo Angelo</em>, Casa Usher, Firenze 1982), Dario Cipressi e Cesidio Gualtieri."
+      ],
+      en: [
+        "From April to May 1972, Scabia went to Abruzzo to work for the Teatro Stabile dell'Aquila [the Aquila Public Theatre]. He and some of his collaborators made available to children coming from twelve different places a Teatro Vagante [Wandering Theatre], consisting of a disguised van containing the objects the children would work with:",
+        "\"paints, brushes, coloured papers and plastics, adhesives, scissors, staplers, a typewriter, a mimeograph machine, a portable tape recorder, tubes and modular joints for building, ladders, platforms, elements for the dragon, small puppet theatres, masks, costumes, etc.\"",
+        "The list is included by Scabia as an appendix to his book of the same title, published by Emme di Rosellina Archinto in 1974. This was done with a didactic intent toward the thousands of people who would soon after follow in these footsteps, in projects that spread through the squares and streets of all Italy, as well as through schools and libraries. It was a season of extraordinary theatrical actions that revolutionised both theatre and school. A season whose fruits we can still gather today.",
+        "In each of the cities involved, the work followed an \"empty scheme\" [schema vuoto], made up &mdash; somewhat as in the commedia dell'arte &mdash; of a series of indicative headings, adjustable each time, over the three days in which the action unfolded. At the start there was the \"theatre market\", then other elements that could vary, such as \"introduction of the objects\", \"the founder of the city\", \"birth of the city\", \"birth of the puppets\", \"the city's newspaper\", \"description of events\", \"action of the puppets\", \"the theatre\", \"construction and emergence of the dragon\", \"the fantastic knight\", and finally \"how to carry on after the open workshop's departure\".",
+        "The scheme changed according to the places and to the preliminary and follow-up meetings, as is recounted in the 1974 book, republished by Babalibri in 2022, through a broad repertoire of photographic material by Sebastiana Papa (later the author of the marvellous photographs for <em>Il Diavolo e il suo Angelo</em> [The Devil and His Angel], Casa Usher, Florence 1982), Dario Cipressi, and Cesidio Gualtieri."
+      ]
+    },
+    '4': {
+      title: 'Teatro come laboratorio aperto',
+      credit: { it: 'Foto di Dario Cipressi', en: 'Photo by Dario Cipressi' },
+      it: [
+        "«LABORATORIO APERTO significa innanzitutto ricerca di come fare teatro INSIEME con gli altri. In questo caso, ricerca di come fare teatro INSIEME con i ragazzi.",
+        "Perché teatro coi ragazzi?",
+        "Teatro può essere gioco, ma soprattutto teatro è itinerario di ricerca attraverso l'invenzione. Scoperta dunque di ciò che si è nei confronti della società e del gruppo in cui si è inseriti. In questo senso il fare teatro è un atto espressivo semplice, un mutamento di ottica nei confronti degli oggetti e delle persone che ci stanno intorno. Riscoperta del fare attivo accanto al vedere passivo. L'azione teatrale coi ragazzi, la cui forma principale è l'improvvisazione, è anche una ricerca del senso del teatro oggi.»",
+        "Si avverte, dietro a queste parole, una scrittura che ha più di cinquant'anni, forse in certi passaggi troppo utopistica, troppo schematica, ma ancora oggi con una sua urgenza, attualità, sia nella scuola che nel lavoro con i ragazzi."
+      ],
+      en: [
+        "\"OPEN WORKSHOP means, first of all, research into how to make theatre TOGETHER with others. In this case, research into how to make theatre TOGETHER with children.",
+        "Why theatre with children?",
+        "Theatre can be play, but above all theatre is an itinerary of research through invention. It is, therefore, a discovery of who one is in relation to society and to the group one belongs to. In this sense, making theatre is a simple expressive act, a shift in perspective toward the objects and people around us. A rediscovery of active doing alongside passive watching. Theatrical action with children, whose principal form is improvisation, is also a search for the meaning of theatre today.\"",
+        "One can sense, behind these words, a piece of writing more than fifty years old &mdash; in certain passages perhaps too utopian, too schematic &mdash; but still today carrying its own urgency and relevance, both in schools and in work with children."
+      ]
+    },
+    '5': {
+      title: "Un'avventura educativa nel teatro di Giuliano Scabia",
+      credit: { it: 'Foto di Dario Cipressi', en: 'Photo by Dario Cipressi' },
+      it: [
+        "Scrive Francesco Cappa nell'introduzione alla ristampa di <em>Forse un drago nascerà</em>, Babalibri 2022:",
+        "«&hellip;Una formula magica, un gesto poetico, un atto divagante, promettente. Un dono per i ragazzi di una città, inaspettato e festoso, per iniziare insieme un'avventura che può cambiare la loro realtà con le mani, con il cuore in allerta, con gli occhi e la mente per un giorno solo, per tre o forse per sempre. Tutto questo riusciva a fare Giuliano Scabia. Il suo teatro è un'arte dell'incanto e dell'incontro. Giuliano Scabia era capace, con la forza dei suoi gesti teatrali, di inaugurare avventure formative nei suoi interlocutori, collaboratori, studenti, attori e in tutti quelli che incontrava sul suo cammino. Dal 1972 per più di vent'anni con gli iscritti del corso di Drammaturgia del DAMS di Bologna (&hellip;). Partecipare a questo corso era un'avventura sia per gli studenti sia per il professore che non voleva esser chiamato 'maestro', ogni anno con una sfida da cogliere e da affrontare insieme.»"
+      ],
+      en: [
+        "Francesco Cappa writes in the introduction to the reprint of <em>Forse un drago nascerà</em> [Perhaps a Dragon Will Be Born], Babalibri 2022:",
+        "\"&hellip;A magic formula, a poetic gesture, a digressive, promising act. A gift for the children of a city, unexpected and festive, to begin together an adventure that could change their reality &mdash; with their hands, with their hearts on alert, with their eyes and minds &mdash; for just one day, for three days, or perhaps forever. All this Giuliano Scabia was able to do. His theatre is an art of enchantment and encounter. Giuliano Scabia was able, through the force of his theatrical gestures, to open up formative adventures in those he spoke with &mdash; collaborators, students, actors, and everyone he met along his path. From 1972, for more than twenty years, with the students enrolled in the Dramaturgy course at DAMS in Bologna (&hellip;). Taking part in this course was an adventure both for the students and for the professor, who did not want to be called 'maestro', each year bringing a new challenge to take up and face together.\""
+      ]
+    }
+  };
+
+  var overlay = document.getElementById('panelModalOverlay');
+  if(!overlay) return;
+  var titleEl = document.getElementById('panelModalTitle');
+  var bodyIt = document.getElementById('panelModalBodyIt');
+  var bodyEn = document.getElementById('panelModalBodyEn');
+  var creditEl = document.getElementById('panelModalCredit');
+  var btnIt = document.getElementById('panelBtnIt');
+  var btnEn = document.getElementById('panelBtnEn');
+  var closeBtn = document.getElementById('panelModalClose');
+
+  function paragraphs(arr){
+    return arr.map(function(t){ return '<p>' + t + '</p>'; }).join('');
+  }
+
+  window.openPanelModal = function(id){
+    var data = panelTexts[id];
+    if(!data) return;
+    titleEl.textContent = data.title;
+    bodyIt.innerHTML = paragraphs(data.it);
+    bodyEn.innerHTML = paragraphs(data.en);
+    creditEl.textContent = data.credit.it;
+    setPanelLang('it');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closePanelModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function setPanelLang(lang){
+    bodyIt.hidden = (lang !== 'it');
+    bodyEn.hidden = (lang !== 'en');
+    btnIt.classList.toggle('active', lang === 'it');
+    btnEn.classList.toggle('active', lang === 'en');
+    var current = panelTexts[Object.keys(panelTexts).find(function(k){
+      return panelTexts[k].title === titleEl.textContent;
+    })];
+    if(current) creditEl.textContent = current.credit[lang];
+  }
+
+  btnIt.addEventListener('click', function(){ setPanelLang('it'); });
+  btnEn.addEventListener('click', function(){ setPanelLang('en'); });
+  closeBtn.addEventListener('click', closePanelModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closePanelModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closePanelModal(); });
+})();
+</script>
+</body>
+</html>

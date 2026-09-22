@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mille Navi Ancora — Giorgia Migliorini</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,900&family=Inter:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:#ffffff; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  img { display:block; width:100%; height:auto; object-fit:cover; }
+
+  :root{
+    --pad: clamp(20px, 4.5vw, 64px);
+    --paper: #ffffff;
+    --ink: #0B0A0A;
+    --mut: rgba(11,10,10,0.56);
+    --purple: #5B2557;
+    --blush: #F6DCE8;
+  }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .serif-italic{ font-family:'Fraunces', serif; font-weight:500; font-style:italic; letter-spacing:0; }
+
+  .proj-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: var(--pad);
+  }
+  .proj-nav a{ font-size:13px; font-weight:500; transition:opacity 0.2s; }
+  .proj-nav a:hover{ opacity:0.55; }
+
+  .proj-head{
+    padding: 0 var(--pad) 32px;
+    max-width:900px;
+  }
+  .proj-title{
+    font-family:'Archivo', sans-serif;
+    font-weight:800;
+    font-size:clamp(32px, 6vw, 64px);
+    letter-spacing:-0.01em;
+    margin:0 0 10px;
+  }
+  .proj-cat{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:16px;
+    color:var(--mut);
+  }
+
+  .proj-media{
+    position:relative;
+    width:100vw;
+    left:50%;
+    margin-left:-50vw;
+    height:clamp(320px, 48vw, 620px);
+    overflow:hidden;
+  }
+  .proj-media img{ width:100%; height:100%; object-fit:cover; border-radius:0; }
+
+  .proj-keywords{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding: 40px var(--pad) 0;
+    max-width:760px;
+  }
+  .kw-tag{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border:1px solid rgba(11,10,10,0.2);
+    border-radius:100px;
+    padding:8px 16px;
+  }
+
+  .proj-source{
+    padding: 20px var(--pad) 0;
+    max-width:760px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:14px;
+    color:var(--mut);
+  }
+  .proj-source a{ border-bottom:1px solid rgba(11,10,10,0.3); transition:opacity 0.2s; }
+  .proj-source a:hover{ opacity:0.55; }
+
+  .lang-toggle{
+    display:flex;
+    gap:8px;
+    padding: 36px var(--pad) 0;
+  }
+  .lang-btn{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:0.02em;
+    padding:8px 18px;
+    border-radius:100px;
+    border:1px solid rgba(11,10,10,0.2);
+    background:transparent;
+    color:var(--mut);
+    cursor:pointer;
+    transition:background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .lang-btn.active{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+
+  .article{
+    padding: 24px var(--pad) 140px;
+    max-width:680px;
+  }
+  .article[hidden]{ display:none; }
+  .article p{
+    margin:0 0 20px;
+    font-size:16px;
+    line-height:1.75;
+    color:var(--ink);
+  }
+  .article p:first-of-type{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.6;
+  }
+  .article em{ font-family:'Fraunces', serif; font-style:italic; }
+  .article-byline{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:var(--mut);
+    margin-bottom:28px;
+  }
+
+  @media (max-width:720px){
+    .proj-title{ font-size:clamp(28px,9vw,44px); }
+  }
+</style>
+</head>
+<body>
+  <div class="proj-nav">
+    <a href="index.html">Giorgia Migliorini</a>
+    <a href="index.html#lavori">&larr; Back to Projects</a>
+  </div>
+
+  <div class="proj-head">
+    <h1 class="proj-title">Mille Navi Ancora</h1>
+    <div class="proj-cat">Interview &amp; report — Rivista Stanca</div>
+  </div>
+
+<div class="proj-keywords">
+    <span class="kw-tag">Interview</span>
+    <span class="kw-tag">Daily reporting on the mission</span>
+    <span class="kw-tag">First-hand perspective from inside the flotilla</span>
+    <span class="kw-tag">Outlook on the movement's future</span>
+  </div>
+
+  <div class="proj-source">
+    A report on the <em>Thousand Madleens To Gaza</em> flotilla, built around an interview with photographer Andrea Mastrangelo, tracking the mission day by day through the first interceptions by Greek and Israeli military forces, and looking ahead at how the movement might continue. Originally published on <a href="https://rivistastanca.com/mille-navi-ancora/" target="_blank" rel="noopener">Rivista Stanca</a>.
+  </div>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-it" onclick="setLang('it')">Italiano</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">English</button>
+  </div>
+
+  <article class="article" id="article-it">
+    <div class="article-byline">di Giorgia Migliorini</div>
+
+    <p>«Ti senti invincibile. In piedi sulla barca. Intorno, altri che come te guardano le bandiere sventolare e i fumogeni colorare il cielo, mentre sfiliamo tutte e diciotto davanti al grande porto di Marsiglia». Così risponde il mio amico Andrea Mastrangelo &ndash; con la voce rotta, ora dal vento, ora dal suono di un cambio di vela &ndash; quando al telefono gli chiedo di raccontarmi la partenza dalla costa francese. Questa è la prima volta che lo sento da quando si è imbarcato, lo scorso 4 aprile, come fotografo con la flotta di <em>Thousand Madleens To Gaza</em>.</p>
+
+    <p>Cariche di aiuti umanitari, le diciotto barche, salpate da Marsiglia e supportate a terra da più di tremila volontari, hanno l'obiettivo di sfidare il blocco navale israeliano, navigando alla volta di una zona sempre più militarizzata. Nonostante la preoccupazione accumulata nelle settimane di silenzio, la calma nella sua voce riesce a rassicurarmi: «Vedere tutte quelle persone ammassate sul porto storico. Dieci metri d'acqua ti separano da loro, eppure senti già lontana la comunità che si è creata mentre preparavamo le barche nei mesi che hanno preceduto la partenza, che ha conosciuto e compreso la missione al di là dei <em>social</em>, osservando tutti i giorni il nostro lavoro. Vederli sbandierare i colori palestinesi è stato talmente emozionante che appena abbiamo preso il largo mi è venuta la febbre. I primi giorni non volevo dormire, c'era così tanto da vedere e da vivere su in coperta».</p>
+
+    <p>Sento il telefono vibrare all'orecchio. Mi ha inviato le foto del primo mese di navigazione. «La risoluzione è bassa. Altrimenti non sarei riuscito a inviarle» mi dice. «Non abbiamo una connessione abbastanza forte».</p>
+
+    <p>Attraverso i suoi occhi vedo le barche procedere come se fossero una sola. Le vele colorate, gigantesche. Vedo i disegni sugli scafi scomparire e apparire di nuovo dal mare, a ogni nuova virata.</p>
+
+    <p>«Ogni barca ha un tema, una sua personalità» mi spiega Andrea. «Abbiamo disegnato e scritto sugli scafi qualcosa che fosse legato alla storia e al popolo palestinese». Il nome del <em>leader</em> del Fronte Popolare di Liberazione della Palestina, Ahmad Saadat, a oggi ancora recluso nelle carceri israeliane, si legge sul fianco di una delle barche, scritto a caratteri cubitali.</p>
+
+    <p>Da fotografo quale è, Andrea mi dice che ciò che cercano è l'impatto visivo e l'esplosione mediatica che potrebbe seguirne.</p>
+
+    <p>«Anche se dovessimo passare il blocco navale israeliano, se riuscissimo a proteggere noi e il carico delle barche dai sequestri militari, sappiamo che il nostro aiuto sarebbe comunque minimo. Quello che vogliamo ottenere è la visibilità. Mettendo le nostre vite a rischio, vite di civili privilegiati, speriamo di creare una frattura in questo insopportabile silenzio mediatico che viene gettato ogni giorno sullo sterminio perpetrato in Palestina, Iran e Libano. Vogliamo spingere le situazioni all'estremo, suscitare preoccupazione tanto da mobilitarvi, farvi scendere in strada, esercitare una pressione burocratica sui governi europei, complici della distruzione sistematica portata avanti nella Striscia di Gaza».</p>
+
+    <p>Oltre a essere delle tappe necessarie per caricare le imbarcazioni con gli aiuti umanitari e per fare rifornimento, le città italiane in cui la Flotilla ha fatto tappa (Napoli, Cetraro, Palermo) hanno rappresentato un'occasione per far conoscere l'iniziativa. Nei porti hanno condiviso la causa di una missione civile e non violenta che punta a fare pressione politica e mediatica sulla comunità internazionale, a ottenere la rottura immediata di tutte le azioni di sostegno all'assedio israeliano e agli attacchi indiscriminati sul popolo palestinese.</p>
+
+    <p>I video dell'arrivo della Flottilla a Cetraro sono diventati virali. Gli confesso che vedere le vele avvicinarsi ed essere accolte dalla folla al porto di Mergellina a Napoli mi ha commossa e gli chiedo, invece, come sia stato essere dall'altra parte. Vedere centinaia di persone portare gli stessi colori con cui hanno attraversato il mare e gridare le parole scritte, incise, disegnate sulle barche.</p>
+
+    <p>«La sensazione di essere parte di una comunità è fortissima. Abbiamo lasciato a Marsiglia persone, civili come noi, ma esterne all'organizzazione che ci hanno aiutato per mesi e ora ne troviamo altre, pronte a sostenerci. Ci sono ragazzi, soprattutto tra quelli coinvolti fin dall'inizio, che non lavorano da cinque mesi. Il sostegno che riceviamo è fondamentale. Ci fortifica. Fermarsi poi vuol dire anche riconnettere con quelli con cui sei partito, ma con cui non parli da settimane. Se non affacciandoti durante la navigazione. Anche gli arrivi sono momenti forti».</p>
+
+    <p>Dal rientro della <em>Madleen</em> nel giugno dello scorso anno, l'idea <em>they can stop a boat, but they can't stop a thousand</em> è diventato lo <em>slogan</em> di un movimento che è cresciuto rapidamente, con la nascita di delegazioni in tutto il mondo e l'aggregazione di civili pronti ad aiutare. In poco tempo è nato un coordinamento con le <em>Global Sumud Flotilla</em> e della <em>Freedom Flotilla Coalition</em>, per tentare di portare avanti insieme la missione, lavorando in sinergia. Già nell'ottobre del 2025, infatti, nove imbarcazioni sono partite con la <em>Coalition</em> in una prima spedizione.</p>
+
+    <p>In sei o sette per barca, gli equipaggi sono una mescolanza di lingue, nazionalità e <em>background</em>: «La sensazione, una volta a bordo, è quella di dover mettere da parte il tuo <em>ego</em>. Quello che devi fare sulla barca per il tuo gruppo e quello che state facendo al di fuori diventa più importante. Navigare vuol dire non fermarsi mai. Sei in continuo movimento e le tue giornate passano scandite dai turni e dalle cose da fare per mandarla avanti. Dopo i primi giorni perdi il ritmo convenzionale del sonno e semplicemente cominci a dormire quando puoi. Le notti ventose diventano i tuoi pomeriggi e le mattine sono le tue notti. Su PLUME, la nostra barca, per un po' siamo stati in sei. Raffaele detto Raffo e Claudia da Roma erano gli skipper. Sam e Olivia, gli americani. Anto, un ragazzo francese che lavora come marinaio, e io. Poi, dopo Cetraro, le cose sono un po' cambiate».</p>
+
+    <p>Dopo l'arrivo in Calabria, alcuni guasti alle imbarcazioni e l'<em>escalation</em> politica e militare degli ultimi giorni hanno reso urgenti nuove riunioni tra le delegazioni rappresentative presenti e quelle che operano da terra. Decisivo è stato, successivamente, l'intervento di Francesca Albanese &ndash; relatrice dell'ONU per i territori palestinesi e figura di riferimento per il movimento &ndash; al <em>Global Sumud Congress</em> di Bruxelles che si è tenuto lo scorso 22 aprile. Le preoccupazioni di Albanese sul possibile risultato violento dell'ingresso della flottiglia nella <em>zona rossa</em>, seppur con qualche critica, si sono progressivamente allineate con quelle delle delegazioni.</p>
+
+    <p>La <em>Thousand Madleens To Gaza</em> ha deciso di intraprendere una riconsiderazione strategica: continuare a essere un mezzo di resistenza e di solidarietà, diversificando le forme di supporto e mantenendo una visione aperta del Mediterraneo. La missione non è proceduta come pianificato in origine, bensì sostenendo una denuncia più mirata alla complicità occidentale con l'espansionismo sionista in Palestina, Libano, Iran e Siria.</p>
+
+    <p>Al momento, le imbarcazioni si trovano ancora a Cetraro, dove la TMTG sta collaborando con la città per la creazione di un progetto comunitario. A rafforzarsi sono anche i rapporti con i sindacati, le delegazioni e i movimenti di terra, al fine di raggiungere un nuovo coordinamento per l'utilizzo delle risorse a disposizione. Continuare ad amplificare l'iniziativa delle restanti imbarcazioni della Flotilla, in navigazione verso la Striscia, rimane una priorità.</p>
+
+    <p>La notizia ha iniziato a circolare tra gli equipaggi portando con sé un senso generale di amarezza e delusione. Soprattutto tra coloro che sono stati operativi a Marsiglia dai primi momenti, lo sconforto è forte. Tuttavia, i volontari erano a conoscenza dei rischi della spedizione e per questo la battuta d'arresto non è arrivata come una sorpresa.</p>
+
+    <p>Nel raccontarmi le ultime notizie, la voce di Andrea sembra angosciata. Stanca, affaticata e forse un po' disillusa, trascina al telefono le ultime frasi. Preoccupazioni più che altro. A preoccuparlo è la difficoltà di creare una nuova narrativa, egualmente sensazionale e scioccante, in grado di attirare lo sguardo generale. Come continuare a essere d'impatto, in una dinamica ora monca della sua soluzione originale. Riuscendo a raggiungere e a mantenere quell'espressività che arriva forte dal «voi mi raccomando fate il vostro», in conclusione delle ultime comunicazioni della Flotilla, a seguito dell'intercettazione israeliana nel sud della Grecia del 29 aprile.</p>
+
+    <p>Assieme a questa, altre missioni con maggiore eco mediatica si sono svolte. Dopo l'abbordaggio delle ventidue barche della Global Sumud Flotilla avvenuto il 29 e 30 aprile e il sequestro di 181 attivisti da parte delle forze militari israeliane, con il sostegno delle risorse nautiche greche, altre missioni hanno continuato a subire intercettazioni. Attacchi prevedibili, data la recente propaganda mediatica dello Stato ebraico, che stanno ostacolando la flotta appena partita dalla Turchia. Il 18 maggio, a circa 250 miglia dalla costa di Gaza, in acque internazionali, le cinquantaquattro imbarcazioni civili vengono aggredite illegalmente dalle forze militari d'Israele. A terra, l'Esercito Nazionale Libico ha già bloccato il <em>Global Sumud Land Convoy</em> a Sirte, impedendo agli oltre 30 veicoli, tra cui ambulanze e camion carichi di forniture mediche, di raggiungere Rafah.</p>
+
+    <p>Nonostante gli abbordaggi, le spedizioni continuano come possono a generare pressione mediatica e burocratica, denunciando la normalizzazione delle violazioni del diritto internazionale e dei rapimenti dei civili volontari sulle imbarcazioni. La missione cambia forma, ma non direzione. Le barche si fermano, si ridistribuiscono, ma la comunità rimane unita. Ed è nella capacità di continuare a comunicare un'urgenza che la spedizione può proseguire.</p>
+  </article>
+
+  <article class="article" id="article-en" hidden>
+    <div class="article-byline">by Giorgia Migliorini</div>
+
+    <p>"You feel invincible. Standing on the boat. Around you, others like you watching the flags wave and the smoke flares colour the sky, as all eighteen of us sail past Marseille's great harbour." That's how my friend Andrea Mastrangelo answers &ndash; his voice breaking, now from the wind, now from the sound of a sail being trimmed &ndash; when I call and ask him to tell me about leaving the French coast. This is the first time I've heard from him since he set sail, this past April 4th, as a photographer with the <em>Thousand Madleens To Gaza</em> fleet.</p>
+
+    <p>Loaded with humanitarian aid, the eighteen boats &ndash; which set sail from Marseille and are backed on land by more than three thousand volunteers &ndash; aim to challenge the Israeli naval blockade, sailing toward an increasingly militarised zone. Despite the worry that had built up over weeks of silence, the calm in his voice manages to reassure me: "Seeing all those people crowded on the historic harbour. Ten metres of water separate you from them, yet you can already feel how far away the community is that formed while we were preparing the boats in the months before departure &ndash; a community that came to know and understand the mission beyond <em>social media</em>, watching our work every day. Seeing them wave the Palestinian colours was so moving that as soon as we set off I came down with a fever. In the first few days I didn't want to sleep, there was so much to see and experience up on deck."</p>
+
+    <p>I feel the phone buzz against my ear. He's sent me photos from the first month at sea. "The resolution is low. Otherwise I wouldn't have been able to send them," he tells me. "We don't have a strong enough connection."</p>
+
+    <p>Through his eyes I see the boats moving as if they were one. The sails, huge and colourful. I see the drawings on the hulls disappear and reappear from the sea with every new tack.</p>
+
+    <p>"Every boat has a theme, its own personality," Andrea explains. "We drew and wrote things on the hulls that were tied to Palestinian history and its people." The name of Ahmad Saadat, leader of the Popular Front for the Liberation of Palestine and still held in Israeli prisons today, is painted in huge letters along the side of one of the boats.</p>
+
+    <p>As a photographer, Andrea tells me that what they're after is visual impact &ndash; and the media explosion that might follow from it.</p>
+
+    <p>"Even if we managed to get past the Israeli naval blockade, even if we managed to protect ourselves and the boats' cargo from military seizure, we know our aid would still be minimal. What we want to achieve is visibility. By putting our lives at risk &ndash; the lives of privileged civilians &ndash; we hope to create a crack in this unbearable media silence that gets cast, every day, over the extermination being carried out in Palestine, Iran and Lebanon. We want to push things to the extreme, to stir up enough concern to mobilise you, to get you out into the streets, to put bureaucratic pressure on European governments, which are complicit in the systematic destruction underway in the Gaza Strip."</p>
+
+    <p>Besides being necessary stops for loading the boats with humanitarian aid and taking on supplies, the Italian cities where the Flotilla docked (Naples, Cetraro, Palermo) were also a chance to spread word of the initiative. In these ports, people rallied around the cause of a civilian, non-violent mission aiming to put political and media pressure on the international community, and to bring about the immediate end of all support for the Israeli siege and for the indiscriminate attacks on the Palestinian people.</p>
+
+    <p>Videos of the Flotilla's arrival in Cetraro went viral. I admit to him that watching the sails approach and be welcomed by the crowd at the port of Mergellina in Naples moved me, and I ask him, instead, what it was like to be on the other side of that &ndash; watching hundreds of people wearing the same colours the boats had carried across the sea, shouting out the words written, carved, and painted on their hulls.</p>
+
+    <p>"The feeling of being part of a community is very strong. We left behind in Marseille people &ndash; civilians like us, but outside the organisation &ndash; who helped us for months, and now we're finding others ready to support us. There are people, especially among those involved from the very start, who haven't worked in five months. The support we get is essential. It strengthens us. Stopping somewhere also means reconnecting with the people you set off with, but haven't really spoken to in weeks &ndash; other than glimpses during the crossing. The arrivals are powerful moments too."</p>
+
+    <p>Since the <em>Madleen</em> returned last June, the idea that <em>"they can stop a boat, but they can't stop a thousand"</em> has become the slogan of a movement that has grown rapidly, with delegations springing up around the world and civilians rallying to help. Before long, a coordination effort formed with the <em>Global Sumud Flotilla</em> and the <em>Freedom Flotilla Coalition</em>, in an attempt to carry the mission forward together, working in sync. Indeed, as early as October 2025, nine boats had already set out with the <em>Coalition</em> on a first expedition.</p>
+
+    <p>With six or seven people per boat, the crews are a mix of languages, nationalities and <em>backgrounds</em>: "Once you're on board, the feeling is that you have to set your <em>ego</em> aside. What you need to do on the boat for your group, and what you're all doing beyond it, becomes more important. Sailing means never stopping. You're constantly on the move, and your days are marked out by shifts and by whatever needs doing to keep the boat going. After the first few days you lose the ordinary rhythm of sleep and simply start sleeping whenever you can. Windy nights become your afternoons, and mornings become your nights. On PLUME, our boat, for a while there were six of us. Raffaele, known as Raffo, and Claudia from Rome were the skippers. Sam and Olivia, the Americans. Anto, a French guy who works as a sailor, and me. Then, after Cetraro, things changed a bit."</p>
+
+    <p>After arriving in Calabria, a number of mechanical problems with the boats and the political and military escalation of recent days made new meetings urgent, between the delegations present on the water and those operating on land. Decisive, later on, was the intervention of Francesca Albanese &ndash; UN Special Rapporteur for the Palestinian territories and a key reference figure for the movement &ndash; at the <em>Global Sumud Congress</em> in Brussels, held this past April 22nd. Albanese's concerns about the possible violent outcome of the flotilla entering the "red zone," despite some criticism, gradually came to align with those of the delegations.</p>
+
+    <p>The <em>Thousand Madleens To Gaza</em> decided to undertake a strategic rethink: to keep being a vehicle for resistance and solidarity, diversifying its forms of support while keeping an open view of the Mediterranean. The mission did not proceed as originally planned, but instead shifted toward a more targeted denunciation of Western complicity with Zionist expansionism in Palestine, Lebanon, Iran and Syria.</p>
+
+    <p>At the moment, the boats are still in Cetraro, where the TMTG is working with the town on setting up a community project. Ties with unions, delegations and land-based movements are also being strengthened, with the aim of reaching a new level of coordination in how available resources are used. Continuing to amplify the initiative of the Flotilla's remaining boats, still sailing toward the Strip, remains a priority.</p>
+
+    <p>The news began circulating among the crews, bringing with it a general sense of bitterness and disappointment. Discouragement runs especially deep among those who had been active in Marseille from the very first moments. Still, the volunteers were aware of the risks of the expedition, so the setback didn't come as a surprise.</p>
+
+    <p>As he tells me the latest news, Andrea's voice sounds anguished. Tired, worn out, and maybe a little disillusioned, he drags out his last sentences on the phone. Worries, mostly. What troubles him is how hard it is to create a new narrative &ndash; just as sensational and shocking &ndash; capable of holding the public's attention. How to keep having an impact, in a situation now robbed of its original solution. Managing to reach, and hold on to, that same intensity that comes through so strongly in "you all take care now, do your part," the closing line of the Flotilla's latest communications, following the Israeli interception in southern Greece on April 29th.</p>
+
+    <p>Alongside this, other missions with greater media reach have taken place. After the boarding of the twenty-two boats of the Global Sumud Flotilla on April 29th and 30th, and the seizure of 181 activists by Israeli military forces &ndash; backed by Greek naval assets &ndash; other missions have continued to face interceptions. Predictable attacks, given the Israeli state's recent media propaganda, are now hampering the fleet that has just set out from Turkey. On May 18th, some 250 nautical miles off the coast of Gaza, in international waters, fifty-four civilian boats were illegally attacked by Israeli military forces. On land, the Libyan National Army has already blocked the <em>Global Sumud Land Convoy</em> at Sirte, preventing more than 30 vehicles &ndash; including ambulances and trucks loaded with medical supplies &ndash; from reaching Rafah.</p>
+
+    <p>Despite the boardings, the expeditions continue, as best they can, to generate media and political pressure, denouncing the normalisation of international law violations and the abduction of civilian volunteers aboard the boats. The mission is changing shape, but not direction. The boats stop, they regroup, but the community stays united. And it is in the ability to keep communicating that same urgency that the expedition can carry on.</p>
+  </article>
+
+  <script>
+    function setLang(lang){
+      document.getElementById('article-it').hidden = (lang !== 'it');
+      document.getElementById('article-en').hidden = (lang !== 'en');
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>

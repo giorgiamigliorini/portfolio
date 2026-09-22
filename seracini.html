@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maurizio Seracini — Giorgia Migliorini</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,900&family=Inter:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:#ffffff; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  img { display:block; width:100%; height:auto; object-fit:cover; }
+
+  :root{
+    --pad: clamp(20px, 4.5vw, 64px);
+    --paper: #ffffff;
+    --ink: #0B0A0A;
+    --mut: rgba(11,10,10,0.56);
+    --purple: #5B2557;
+    --blush: #F6DCE8;
+  }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .serif-italic{ font-family:'Fraunces', serif; font-weight:500; font-style:italic; letter-spacing:0; }
+
+  .proj-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: var(--pad);
+  }
+  .proj-nav a{ font-size:13px; font-weight:500; transition:opacity 0.2s; }
+  .proj-nav a:hover{ opacity:0.55; }
+
+  .proj-head{
+    padding: 0 var(--pad) 12px;
+    max-width:900px;
+  }
+  .proj-title{
+    font-family:'Archivo', sans-serif;
+    font-weight:800;
+    font-size:clamp(30px, 5.2vw, 56px);
+    letter-spacing:-0.01em;
+    margin:0 0 10px;
+  }
+  .proj-cat{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:16px;
+    color:var(--mut);
+  }
+  .proj-dek{
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    color:var(--mut);
+    max-width:640px;
+    margin-top:16px;
+    line-height:1.6;
+  }
+
+  .proj-media{
+    position:relative;
+    width:100vw;
+    left:50%;
+    margin-left:-50vw;
+    height:clamp(320px, 48vw, 620px);
+    overflow:hidden;
+  }
+  .proj-media img{ width:100%; height:100%; object-fit:cover; border-radius:0; }
+
+  .proj-keywords{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding: 40px var(--pad) 0;
+    max-width:760px;
+  }
+  .kw-tag{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border:1px solid rgba(11,10,10,0.2);
+    border-radius:100px;
+    padding:8px 16px;
+  }
+
+  .proj-source{
+    padding: 20px var(--pad) 0;
+    max-width:760px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:14px;
+    color:var(--mut);
+  }
+  .proj-source a{ border-bottom:1px solid rgba(11,10,10,0.3); transition:opacity 0.2s; }
+  .proj-source a:hover{ opacity:0.55; }
+
+  .lang-toggle{
+    display:flex;
+    gap:8px;
+    padding: 36px var(--pad) 0;
+  }
+  .lang-btn{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:0.02em;
+    padding:8px 18px;
+    border-radius:100px;
+    border:1px solid rgba(11,10,10,0.2);
+    background:transparent;
+    color:var(--mut);
+    cursor:pointer;
+    transition:background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .lang-btn.active{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+
+  .article{
+    padding: 24px var(--pad) 140px;
+    max-width:680px;
+  }
+  .article[hidden]{ display:none; }
+  .article p{
+    margin:0 0 20px;
+    font-size:16px;
+    line-height:1.75;
+    color:var(--ink);
+  }
+  .article p:first-of-type{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .article em{ font-family:'Fraunces', serif; font-style:italic; }
+  .article-byline{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:var(--mut);
+    margin-bottom:28px;
+  }
+  .article .q{
+    font-family:'Archivo', sans-serif;
+    font-weight:700;
+    font-size:18px;
+    line-height:1.4;
+    letter-spacing:-0.005em;
+    color:var(--ink);
+    margin:40px 0 16px;
+    padding-left:20px;
+    border-left:3px solid var(--purple);
+  }
+  .article .end-note{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--mut);
+    margin-top:8px;
+  }
+
+  @media (max-width:720px){
+    .proj-title{ font-size:clamp(26px,8vw,38px); }
+  }
+</style>
+</head>
+<body>
+  <div class="proj-nav">
+    <a href="index.html">Giorgia Migliorini</a>
+    <a href="index.html#lavori">&larr; Back to Projects</a>
+  </div>
+
+  <div class="proj-head">
+    <h1 class="proj-title">Maurizio Seracini on the Future of Art Diagnostics, Between Science and Cultural Heritage</h1>
+    <div class="proj-cat">Interview — FUL Magazine</div>
+    <div class="proj-dek">From the hunt for Leonardo's «Battle of Anghiari» to the diagnostics of the future: investigating art with the tools of science.</div>
+  </div>
+
+<div class="proj-keywords">
+    <span class="kw-tag">Interview</span>
+    <span class="kw-tag">Feature on art diagnostics &amp; cultural heritage</span>
+    <span class="kw-tag">Q&amp;A with a pioneer of scientific art diagnostics</span>
+    <span class="kw-tag">Published in FUL Magazine</span>
+  </div>
+
+  <div class="proj-source">
+    An interview with Maurizio Seracini — the engineer and researcher who pioneered applying scientific diagnostics to the study and conservation of artworks, from the search for Leonardo's <em>Battle of Anghiari</em> to his work founding Editech. Originally published on <a href="https://firenzeurbanlifestyle.com/maurizio-seracini-intervista-ful/" target="_blank" rel="noopener">Firenze Urban Lifestyle — FUL Magazine</a>.
+  </div>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-it" onclick="setLang('it')">Italiano</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">English</button>
+  </div>
+
+  <article class="article" id="article-it">
+    <div class="article-byline">Intervista di Giorgia Migliorini</div>
+
+    <p>Maurizio Seracini è una delle figure più note e al tempo stesso più controverse nel panorama internazionale dei beni culturali. Formatosi tra Italia e Stati Uniti, il suo lavoro ha contribuito in modo decisivo allo sviluppo della cosiddetta &ldquo;diagnostica artistica&rdquo;, un approccio che considera l'opera come un organismo complesso da indagare attraverso strumenti scientifici, integrando i dati materiali con la lettura storico-critica tradizionale.</p>
+
+    <p>Dopo le prime celebri ricerche condotte negli anni Settanta sulla possibile localizzazione della Battaglia di Anghiari di Leonardo da Vinci a Palazzo Vecchio, Seracini ha fondato Editech, una delle prime realtà europee dedicate all'analisi scientifica delle opere d'arte.</p>
+
+    <p>Parallelamente, ha svolto attività di ricerca e formazione negli Stati Uniti, contribuendo alla nascita di programmi interdisciplinari come il CISA3, Center of Interdisciplinary Science for Art, Architecture and Archaeology, fondato nel 2007 presso la University of California, San Diego, con l'obiettivo di formare professionisti capaci di integrare competenze umanistiche e scientifiche.</p>
+
+    <p>Nel corso della sua carriera, Maurizio Seracini ha affiancato all'attività di ricerca anche un'intensa esperienza didattica internazionale, consolidando una riflessione costante sul rapporto tra scienza e patrimonio culturale. Questa dimensione divulgativa trova una delle sue espressioni più note nel suo intervento al TEDGlobal del 2012, intitolato <em>The secret lives of paintings</em>, in cui Seracini racconta al grande pubblico la possibilità di &ldquo;leggere&rdquo; le opere d'arte oltre la superficie visibile.</p>
+
+    <p>Nel talk, diventato uno dei riferimenti più citati del suo percorso pubblico, porta al centro dell'attenzione l'idea che ogni opera custodisca una stratificazione di informazioni invisibili a occhio nudo, accessibili solo attraverso strumenti diagnostici e un approccio scientifico integrato.</p>
+
+    <p>In questa intervista per FUL, Seracini ripercorre il proprio percorso, riflette sulla resistenza che ancora oggi ostacola il suo lavoro e affronta con spirito critico il tema della formazione delle nuove generazioni e del futuro delle professioni legate alla conservazione del patrimonio culturale.</p>
+
+    <p class="q">Il suo lavoro è spesso associato a un ruolo pionieristico nell'applicazione delle tecnologie scientifiche allo studio delle opere d'arte. Com'è nata questa intuizione e quali sono state le prime occasioni per poi metterla in pratica?</p>
+
+    <p>Credo fosse il Sessantotto quando provai a iscrivermi ad Architettura a Venezia. Erano gli anni in cui a insegnare c'erano figure straordinarie, architetti che avrebbero poi segnato la storia dell'architettura moderna in Europa e negli Stati Uniti. Bene, andai in facoltà e la trovai occupata. Era il periodo delle prime mobilitazioni studentesche e degli scioperi di solidarietà: in quel caso si protestava a sostegno degli spazzini veneziani, quelli che allora giravano per la città con i loro carrettini. Il risultato fu che lasciai la città e mi spostai a Firenze. Qui provai a iscrivermi a Ingegneria, ma nel giro di poco anche quella fu occupata e chiusa. Così ripiegai su Statistica, di cui mi importava il giusto.</p>
+
+    <p>Durante gli studi, cominciai a lavorare e a mettere via dei soldi. Avevo deciso di andarmene a studiare all'estero. Dopo circa un anno, superati i vari esami di ammissione, me ne andai all'Università della California a San Diego a studiare ingegneria biomedica. Che al tempo in Italia non esisteva. Volevo diventare un ingegnere specializzato in medicina e poi diventare medico, per avere una comprensione più profonda dei limiti e delle possibilità di tecnologie mediche sempre più sofisticate. E così ho fatto, ho preso la laurea e mi sono iscritto a un corso un po' strano che comprendeva sia il dottorato di ricerca in ingegneria biomedica, sia la laurea in medicina. La vita a San Diego era meravigliosa, eccetto che per un piccolo dettaglio: avevo dimenticato il servizio militare. Sotto intimazione dello Stato, sono dovuto tornare in Italia mollando tutto. Non credere mai di essere in pieno controllo della tua vita.</p>
+
+    <p>Mi trovai allora in Italia, senza passaporto e senza un lavoro. Avevo provato a entrare in vari ospedali, a Firenze, Milano, ricordo Roma, ma tutti mi dicevano: &laquo;cos'è che fa lei? ma è un dottore o un ingegnere?&raquo;.</p>
+
+    <p>Devi sapere ora che durante gli anni di Ingegneria biomedica avevo coltivato una seconda grande passione: la storia dell'arte. Forse perché sono nato a Firenze, no? Due giorni alla settimana andavo da San Diego a Los Angeles a studiare storia dell'arte con il professor Carlo Pedretti, che allora insegnava arte italiana del quindicesimo e del sedicesimo secolo. Per me erano ore di puro ossigeno dopo le giornate passate in laboratorio.</p>
+
+    <p>La verità a volte è che la vita ti presenta il conto, altre volte ti offre un'opportunità che non avevi nemmeno immaginato. Tornato a Firenze, nel 1975, mentre lavoravo in un bar, tanto per campare, incontrai il professor Pedretti. Era tornato in Italia per fare delle ricerche su alcuni documenti, trovati qualche anno prima, sulla storia della pittura murale della Battaglia di Anghiari di Leonardo. Fu lì che mi chiese se fosse possibile utilizzare gli strumenti e le tecniche che avevo appreso a Ingegneria Biomedica per cercare eventuali tracce dell'opera di Leonardo nel Salone dei Cinquecento di Palazzo Vecchio. Ecco come nell'arco di quarantotto ore la mia vita prese tutta un'altra direzione.</p>
+
+    <p>Da quel giorno non ho fatto granché, se non semplicemente considerare un'opera d'arte come un paziente, un museo come un ospedale; oppure il nostro patrimonio monumentale, un ospedale a cielo aperto. E ho applicato non solo questo concetto, ma anche l'approccio metodologico che si usava in medicina per studiare un paziente. Oltrepassando la sola anamnesi dell'opera, cioè la sua storia documentata, e arrivando a conoscerne l'anatomia. Come facciamo a sapere come è stato eseguito un dipinto centinaia di anni fa? Con la scienza, perché i nostri occhi da soli non bastano. Come in medicina, iniziamo con delle indagini multispettrali per poi capire, dalla lettura dei referti, come approfondire lo studio. Seguono analisi chimiche e datazioni, che consentono di comprendere a quale periodo risalgono le varie componenti dell'artefatto. Dunque, una volta che conosciamo l'anatomia del nostro paziente, possiamo anche identificarne in modo corretto le patologie e decidere come agire. Proprio come un'operazione in una sala chirurgica, anche un restauro deve essere supportato da delle analisi preliminari che ne dimostrino la necessità e ne determinano le modalità.</p>
+
+    <p>Purtroppo, ancora oggi non esiste una normativa che renda obbligatorio il ricorso ad analisi scientifiche approfondite sulle opere d'arte, nemmeno prima di interventi di restauro. È una lacuna importante, perché nel corso del tempo ha contribuito non solo a errori e danni talvolta irreversibili, ma anche alla costruzione e alla diffusione di interpretazioni storiche non sempre corrette.</p>
+
+    <p>Ho lavorato alla ricerca della Battaglia di Anghiari dal Settantacinque al Settantasette, usando tutte le tecnologie che usavamo in campo medico, per riuscire a vedere al di sotto delle superfici pittoriche, dove ovviamente gli occhi non potevano arrivare. Ho usato tutto il campo dell'infrarosso, l'infrarosso fotografico, l'infrarosso termico, gli ultrasuoni e ho cominciato a capire, da una parte, che si poteva fare tantissimo, e dall'altra, che nessun altro si era mai approcciato allo studio di un'opera con un'ottica tecnico-scientifica. Esistevano, sì, piccoli studi che si occupavano di analisi chimiche, tralasciando però tutto quello che riguardava la possibilità di uno studio sistematico dell'opera d'arte mediante immagini multispettrali.</p>
+
+    <p>Nel Settantasette, quando poi la ricerca finì, continuai a offrire servizi di diagnostica nei musei di tutta Italia, con la finalità di studiare l'opera d'arte in funzione anche del suo stato di conservazione. Nacque così Editech, la prima azienda in Europa a offrire questo tipo di servizio, che l'anno prossimo celebrerà ufficialmente cinquant'anni di attività.</p>
+
+    <p class="q">Un bel traguardo, congratulazioni! Dopo gli studi in America e la resistenza che il suo lavoro aveva incontrato qua in Italia, come mai ha deciso di aprire Editech proprio a Firenze?</p>
+
+    <p>Grazie. Ero nato a Firenze, vivevo a Firenze e avevo iniziato a offrire consulenze nei musei della città. Con il tempo il lavoro si è esteso prima alla Toscana e poi al resto d'Italia. All'inizio andavo di museo in museo, chiedendo se ci fossero opere su cui fosse possibile svolgere indagini diagnostiche. Nella maggior parte dei casi mi venivano affidati dipinti destinati a essere restaurati.</p>
+
+    <p>È stato così, un passo alla volta, che ho contribuito a sviluppare il settore della diagnostica applicata ai beni culturali. E proprio lungo questo percorso mi sono reso conto dell'entità delle resistenze che circondavano questo approccio, resistenze che, in parte, incontro ancora oggi.</p>
+
+    <p>A mio avviso continua a esserci una certa confusione tra due momenti distinti: l'acquisizione di una conoscenza oggettiva sullo stato di conservazione di un'opera e l'intervento di restauro vero e proprio. E questa confusione può avere conseguenze molto serie. Mi sono sempre chiesto perché un restauro debba basarsi prevalentemente sull'interpretazione di uno storico dell'arte, quando oggi disponiamo di strumenti in grado di fornire dati misurabili, verificabili e scientificamente fondati sullo stato dell'opera.</p>
+
+    <p>Editech è nata proprio per rispondere a questa esigenza. E non poteva che nascere qui, a Firenze, nel cuore di un Paese che custodisce una parte straordinaria del patrimonio artistico e culturale mondiale e che, proprio per questo, avrebbe più di chiunque altro bisogno di strumenti avanzati per conoscerlo e conservarlo.</p>
+
+    <p class="q">Da docente, secondo lei, quale tipo di preparazione pensa possa servire ora ai giovani che vogliono diventare storici dell'arte?</p>
+
+    <p>Oggi uno storico dell'arte dovrebbe anzitutto essere consapevole di ciò che la scienza può offrire per la conoscenza delle opere. Si tratta di prendere atto delle informazioni oggettive che possono emergere dall'analisi scientifica. Per questo ritengo che nella formazione debbano trovare spazio almeno le basi della lettura e dell'interpretazione dei dati. Lo storico dell'arte dovrebbe essere in grado di integrare le fonti documentarie, la conoscenza storico-artistica e i risultati delle indagini scientifiche. Avremmo bisogno di una figura che potremmo definire uno &ldquo;storico dell'arte tecnico&rdquo;. Naturalmente, questo richiederebbe la volontà di ripensare le professionalità del settore, sia in ambito umanistico sia in ambito scientifico. Se l'obiettivo è arrivare a una conoscenza più completa delle opere, fare prevenzione e garantire una conservazione davvero efficace, allora serve un lavoro di squadra: professionisti con competenze diverse che sappiano confrontarsi e comprendere il linguaggio gli uni degli altri.</p>
+
+    <p>La stessa difficoltà di cui stiamo parlando la incontrano anche le migliaia di studenti laureati in Scienze della conservazione. A oggi, non mi risulta che uno solo di loro sia stato assunto dal Ministero della Cultura per svolgere il lavoro per cui ha studiato. A casa mia, questo significa aver illuso per vent'anni migliaia di ragazze e ragazzi. La responsabilità è sia del Ministero sia, forse ancora di più, delle università.</p>
+
+    <p>Lo dico anche per esperienza diretta: ho insegnato in alcune di queste facoltà e ho vissuto queste dinamiche dall'interno. Per questo ritengo che i corsi di laurea in Scienze della Conservazione debbano essere profondamente ripensati, o rifondati unitamente al Ministero, per offrire finalmente delle prospettive concrete.</p>
+
+    <p>Trovo assurdo che, in un Paese come l'Italia, si rinunci alle competenze di migliaia di giovani che hanno scelto questo percorso con passione, entusiasmo e grandi aspettative. E invece molti di loro finiscono a svolgere lavori completamente diversi, dall'operatore telefonico alla guida turistica. È una situazione che considero davvero vergognosa.</p>
+
+    <p>Qui alla Editech cerco di ospitare studenti e ricercatori interessati e di coinvolgerli direttamente nelle attività di ricerca e di analisi. In questo modo, possono lavorare quotidianamente a contatto con i dati, con gli strumenti diagnostici e con le problematiche reali della conservazione. In parallelo, con il programma Center of Interdisciplinary Science for Art, Architecture and Archaeology cerchiamo di dare forma a una nuova figura professionale, superando le barriere tradizionali tra discipline.</p>
+
+    <p class="q">Come spiega questa resistenza un po' anacronistica? Direbbe che si tratta di uno scenario tutto italiano o in generale dell'establishment artistico?</p>
+
+    <p>Perché significherebbe che gli storici dell'arte andrebbero a fare gli storici dell'arte, senza gestire cose per le quali non hanno le competenze. Guarda, è uno scenario generale. Ho lavorato in musei che hanno laboratori veramente di primissimo ordine. Il Metropolitan (New York), la National Gallery di Washington, la National Gallery di Londra e così via. Anche in questi, di solito, le consultazioni scientifiche vengono richieste solo se ci sono problemi durante il restauro. Mancano proprio, a livello mondiale, delle regole metodologiche scritte, come dicevamo prima. Così come non esistono leggi, in tutti i paesi in cui ho lavorato, che codificano come si vende o si acquista un'opera d'arte.</p>
+
+    <p class="q">Tornando invece a Editech, quando sono arrivate le prime commissioni private?</p>
+
+    <p>Le commissioni private sono arrivate quando sono cominciati gli scandali. Quando un quadro viene venduto per 30 milioni, un dibattito sulla sua autenticità può diventare scomodo. Dall'altra parte, però, stava emergendo una domanda sempre più forte da parte del mercato. In particolare da parte di collezionisti e acquirenti che, prima di comprare, volevano avere maggiori certezze sull'opera per accertarsi che non fosse una copia recente, oppure una antica e soprattutto non un falso. Questo solo la scienza lo dimostra. Legalmente, infatti, il parere di uno storico dell'arte sull'autenticità di un'opera è solamente un'opinione. Spesso le richieste di autenticazione arrivano indirettamente anche dai venditori. Enti pubblici o privati che prima di finalizzare la vendita richiedono degli esami sull'opera.</p>
+
+    <p>Possiamo dire che il mio lavoro ha un carattere di discontinuità, perché non è né necessariamente conosciuto né tantomeno codificato. In più, mi ha portato ad avere moltissimi &ldquo;nemici&rdquo;. Diciamo che quando un venditore arriva nel mio laboratorio per autenticare un'opera, su richiesta dell'acquirente, e scopre che si tratta di un falso, raramente torna. Si creano sempre dei rapporti conflittuali. A oggi, però, nessuno è venuto qua a dire &laquo;lei ha sbagliato&raquo; e questo è quanto mi basta. È un lavoro difficile, con grandi responsabilità, ma che richiede prima di tutto una deontologia ben precisa. Sarebbe più semplice dire ai miei clienti che dalle analisi non è apparso niente di rilevante, ma non rientra nel mio modo di operare. L'onestà è la cosa più importante.</p>
+
+    <p class="q">Nel suo TED Talk ha sostenuto che il turismo culturale debba passare da una fruizione passiva a un'esperienza di scoperta e partecipazione. In che modo si può stimolare oggi un coinvolgimento più attivo del pubblico nella conoscenza della storia dell'arte?</p>
+
+    <p>Perché il mondo dei beni culturali riesca davvero a produrre e trasmettere cultura, è necessario che ciascuno di noi diventi protagonista del proprio apprendimento. Oggi, invece, nei musei siamo spesso visitatori passivi: guardiamo un'opera e passiamo oltre. A volte mi chiedo quanti si accorgerebbero della differenza se al posto degli originali fossero esposte delle copie. Ed è un peccato e uno spreco, perché dietro ogni opera d'arte c'è un momento di creatività e di genio, un percorso di intuizioni e di ripensamenti che non viene trasmesso.</p>
+
+    <p>Immaginiamo un visitatore davanti alla Primavera di Botticelli: con il proprio cellulare potrebbe vedere il disegno preparatorio, scoprire come è nata l'opera, osservare ciò che si trova sotto gli strati di restauro o conoscere le diverse fasi che il dipinto ha attraversato nel tempo. Sono convinto che quel turista uscirebbe dal museo con un'esperienza molto più ricca e con qualcosa di concreto da portare con sé.</p>
+
+    <p>L'apprendimento nasce dalla curiosità, e la curiosità si alimenta attraverso nuove esperienze, soprattutto visive, in un mondo come quello di oggi. Era proprio questo l'obiettivo di Wipe Off, un'applicazione che avevo realizzato come Direttore di CISA 3 ad UCSD (University of California, San Diego) utilizzando tecnologie ingegneristiche, per consentire a chiunque di ripercorrere la storia di un dipinto e scoprirne le diverse trasformazioni nel corso dei secoli.</p>
+
+    <p>Tutto questo patrimonio di conoscenze dovrebbe essere condiviso e reso accessibile, soprattutto alle nuove generazioni, che avranno il compito di custodire e valorizzare il nostro patrimonio culturale in futuro. Invece continuiamo a rimanere bloccati da un'aura di distanza e di esclusività costruita e difesa nel tempo. Dovremmo tutti impegnarci per &ldquo;dare un futuro al nostro passato&rdquo;!</p>
+
+    <p class="end-note">Intervista di Giorgia Migliorini / Foto per gentile concessione del Dott. Maurizio Seracini</p>
+  </article>
+
+  <article class="article" id="article-en" hidden>
+    <div class="article-byline">Interview by Giorgia Migliorini</div>
+
+    <p>Maurizio Seracini is one of the best known — and at the same time most controversial — figures on the international cultural heritage scene. Trained between Italy and the United States, his work has decisively contributed to the development of what's known as &ldquo;art diagnostics&rdquo;: an approach that treats the artwork as a complex organism to be investigated with scientific instruments, integrating material data with traditional art-historical reading.</p>
+
+    <p>After the celebrated research he carried out in the 1970s into the possible location of Leonardo da Vinci's <em>Battle of Anghiari</em> inside Palazzo Vecchio, Seracini founded Editech, one of the first European companies dedicated to the scientific analysis of works of art.</p>
+
+    <p>Alongside this, he carried out research and teaching in the United States, helping bring about interdisciplinary programmes such as CISA3, the Center of Interdisciplinary Science for Art, Architecture and Archaeology, founded in 2007 at the University of California, San Diego, with the goal of training professionals able to integrate humanistic and scientific skills.</p>
+
+    <p>Throughout his career, Maurizio Seracini has paired his research with an intense international teaching practice, building an ongoing reflection on the relationship between science and cultural heritage. This outreach side of his work finds one of its best-known expressions in his 2012 TEDGlobal talk, <em>The Secret Lives of Paintings</em>, in which Seracini tells a general audience about the possibility of &ldquo;reading&rdquo; works of art beyond their visible surface.</p>
+
+    <p>In the talk, which has become one of the most cited touchstones of his public career, he places at the centre of attention the idea that every artwork holds layers of information invisible to the naked eye, accessible only through diagnostic instruments and an integrated scientific approach.</p>
+
+    <p>In this interview for FUL, Seracini looks back on his own career, reflects on the resistance that still stands in the way of his work today, and takes a critical look at the training of new generations and the future of the professions tied to cultural heritage conservation.</p>
+
+    <p class="q">Your work is often associated with a pioneering role in applying scientific technologies to the study of artworks. How did this insight come about, and what were the first opportunities to put it into practice?</p>
+
+    <p>I think it was '68 when I tried to enrol in Architecture in Venice. Those were the years when extraordinary figures were teaching there — architects who would go on to shape the history of modern architecture in Europe and the United States. Well, I went to the faculty and found it occupied. It was the time of the first student mobilisations and solidarity strikes: in that case, people were protesting in support of Venice's street sweepers, the ones who went around the city with their little carts back then. The result was that I left the city and moved to Florence. There I tried to enrol in Engineering, but before long that too was occupied and shut down. So I fell back on Statistics, which I cared about exactly as much as I needed to.</p>
+
+    <p>While I was studying, I started working and putting money aside. I'd decided I would go and study abroad. After about a year, once I'd passed the various admission exams, I went off to the University of California, San Diego, to study biomedical engineering — which didn't exist in Italy at the time. I wanted to become an engineer specialised in medicine and then become a doctor, so as to have a deeper understanding of the limits and possibilities of increasingly sophisticated medical technologies. And that's what I did: I got my degree and enrolled in a rather unusual programme that combined a PhD in biomedical engineering with a medical degree. Life in San Diego was wonderful, except for one small detail: I'd forgotten about military service. Summoned by the Italian state, I had to go back to Italy, dropping everything. Never believe you're fully in control of your own life.</p>
+
+    <p>So there I was in Italy, without a passport and without a job. I'd tried to get into various hospitals — Florence, Milan, Rome, if I remember right — but everyone kept asking me: &ldquo;What exactly is it you do? Are you a doctor or an engineer?&rdquo;</p>
+
+    <p>Now, you should know that during my years in biomedical engineering I'd cultivated a second great passion: art history. Maybe because I was born in Florence, who knows. Two days a week I'd travel from San Diego to Los Angeles to study art history with Professor Carlo Pedretti, who at the time taught fifteenth- and sixteenth-century Italian art. For me, those were hours of pure oxygen after days spent in the lab.</p>
+
+    <p>The truth is that sometimes life hands you the bill, and other times it offers you an opportunity you hadn't even imagined. Back in Florence in 1975, while working in a bar just to get by, I ran into Professor Pedretti. He'd come back to Italy to research some documents, found a few years earlier, on the history of the mural painting of Leonardo's Battle of Anghiari. That's when he asked me whether it might be possible to use the tools and techniques I'd learned in biomedical engineering to look for any traces of Leonardo's work in the Salone dei Cinquecento at Palazzo Vecchio. And that's how, within forty-eight hours, my life took a completely different direction.</p>
+
+    <p>From that day on, really, all I've done is simply treat a work of art as a patient, a museum as a hospital — or our monumental heritage as an open-air hospital. And I applied not just that idea, but also the methodological approach medicine uses to study a patient: going beyond the artwork's mere case history — its documented past — to actually get to know its anatomy. How do we know how a painting was made hundreds of years ago? Through science, because our eyes alone aren't enough. Just as in medicine, we start with multispectral examinations, and from reading those results we work out how to take the study further. Chemical analysis and dating follow, letting us understand which period the artefact's various components date back to. So once we know our patient's anatomy, we can also correctly identify its pathologies and decide how to act. Just like an operation in a surgical theatre, a restoration too must be backed by preliminary analysis that proves it's necessary and determines how it should be carried out.</p>
+
+    <p>Unfortunately, there's still no regulation today that makes in-depth scientific analysis of artworks mandatory, not even before restoration work. That's a significant gap, because over time it has contributed not only to mistakes and sometimes irreversible damage, but also to the construction and spread of historical interpretations that aren't always correct.</p>
+
+    <p>I worked on the search for the Battle of Anghiari from 1975 to 1977, using all the technologies we used in medicine to see beneath the painted surfaces, where the eye obviously couldn't reach. I used the whole infrared spectrum — photographic infrared, thermal infrared — plus ultrasound, and I began to realise, on one hand, that an enormous amount could be done, and on the other, that no one else had ever approached the study of an artwork from a technical-scientific angle. There were, yes, small studies dealing with chemical analysis, but they left out everything to do with the possibility of a systematic study of the artwork through multispectral imaging.</p>
+
+    <p>In 1977, once that research project ended, I kept offering diagnostic services to museums across Italy, with the aim of studying the artwork also in relation to its state of conservation. That's how Editech was born — the first company in Europe to offer this kind of service, and one that will officially mark fifty years of activity next year.</p>
+
+    <p class="q">What a milestone, congratulations! After studying in America, and the resistance your work had met here in Italy, why did you decide to open Editech in Florence of all places?</p>
+
+    <p>Thank you. I was born in Florence, I lived in Florence, and I'd started offering consulting services to the city's museums. Over time the work spread first across Tuscany and then to the rest of Italy. At the start I'd go from museum to museum, asking whether there were works I could run diagnostic investigations on. In most cases I was handed paintings that were about to be restored.</p>
+
+    <p>That's how, one step at a time, I helped develop the field of diagnostics applied to cultural heritage. And it was precisely along that path that I realised just how much resistance surrounded this approach — resistance that, in part, I still run into today.</p>
+
+    <p>In my view, there's still a certain confusion between two distinct moments: gaining objective knowledge of a work's state of conservation, and the actual restoration work itself. And that confusion can have very serious consequences. I've always asked myself why a restoration should be based mainly on an art historian's interpretation, when today we have tools capable of providing measurable, verifiable, scientifically grounded data on the state of the work.</p>
+
+    <p>Editech was created precisely to meet that need. And it could only have been born here, in Florence, at the heart of a country that holds an extraordinary share of the world's artistic and cultural heritage — and which, precisely for that reason, needs advanced tools to understand and preserve it more than anyone else.</p>
+
+    <p class="q">As a teacher, what kind of training do you think young people who want to become art historians need today?</p>
+
+    <p>Today, an art historian should first of all be aware of what science can offer toward understanding a work. It's about taking on board the objective information that can emerge from scientific analysis. That's why I believe training should make room, at the very least, for the basics of reading and interpreting data. An art historian should be able to bring together documentary sources, art-historical knowledge and the results of scientific investigation. What we need is a figure we might call a &ldquo;technical art historian.&rdquo; Naturally, that would require a willingness to rethink professional roles in the field, both on the humanities side and on the scientific side. If the goal is to reach a fuller understanding of artworks, carry out prevention and guarantee truly effective conservation, then you need teamwork: professionals with different skills who know how to engage with each other and understand each other's language.</p>
+
+    <p>The same difficulty we're talking about is also faced by the thousands of students who graduate in Conservation Science. As far as I know, not a single one of them has been hired by the Ministry of Culture to do the job they trained for. Where I come from, that means having strung along thousands of young people for twenty years. The responsibility lies with the Ministry, and perhaps even more so with the universities.</p>
+
+    <p>I say this from direct experience too: I've taught in some of these departments and lived these dynamics from the inside. That's why I believe degree courses in Conservation Science need to be deeply rethought — or refounded together with the Ministry — so they can finally offer real prospects.</p>
+
+    <p>I find it absurd that, in a country like Italy, we throw away the skills of thousands of young people who chose this path with passion, enthusiasm and great expectations. Instead, many of them end up doing completely different jobs, from call-centre operator to tour guide. It's a situation I consider truly shameful.</p>
+
+    <p>Here at Editech I try to host interested students and researchers and involve them directly in research and analysis work. That way, they can work day to day with the data, with the diagnostic instruments, and with the real problems of conservation. Alongside this, through the Center for Interdisciplinary Science for Art, Architecture and Archaeology programme, we try to give shape to a new professional figure, moving past the traditional barriers between disciplines.</p>
+
+    <p class="q">How do you explain this somewhat anachronistic resistance? Would you say it's a purely Italian situation, or a broader feature of the art establishment in general?</p>
+
+    <p>Because it would mean art historians going back to being art historians, without handling things they're not qualified for. Look, it's a general situation. I've worked with museums that have truly first-rate laboratories — the Met in New York, the National Gallery in Washington, the National Gallery in London, and so on. Even there, scientific consultations are usually only called for when problems come up during restoration. What's missing, worldwide, is exactly what we were saying before: written methodological rules. Just as, in every country I've worked in, there are no laws codifying how a work of art is bought or sold.</p>
+
+    <p class="q">Coming back to Editech, when did the first private commissions start coming in?</p>
+
+    <p>Private commissions started coming in once the scandals began. When a painting sells for 30 million, a debate over its authenticity can get very uncomfortable. On the other hand, though, a growing demand was emerging from the market — particularly from collectors and buyers who, before purchasing, wanted greater certainty about a work, to make sure it wasn't a recent copy, or an old one, and above all not a fake. Only science can prove that. Legally, in fact, an art historian's opinion on a work's authenticity is just that — an opinion. Requests for authentication often come indirectly from sellers too: public or private bodies that, before finalising a sale, ask for the work to be examined.</p>
+
+    <p>You could say my work has a discontinuous character, because it's neither necessarily well known nor, even less, codified. On top of that, it's earned me a great many &ldquo;enemies.&rdquo; Let's just say that when a seller comes to my lab to authenticate a piece, at the buyer's request, and discovers it's a fake, they rarely come back. It always creates conflictual relationships. To this day, though, no one has come here to tell me &ldquo;you got it wrong,&rdquo; and that's enough for me. It's difficult work, with major responsibilities, but above all it demands a very precise code of ethics. It would be easier to tell my clients that the analysis turned up nothing significant, but that's not how I operate. Honesty is the most important thing.</p>
+
+    <p class="q">In your TED Talk you argued that cultural tourism needs to move from passive consumption to an experience of discovery and participation. How can we encourage a more active public engagement with art history today?</p>
+
+    <p>For the world of cultural heritage to really produce and pass on culture, each of us needs to become the protagonist of our own learning. Today, instead, in museums we're often passive visitors: we look at a work and move on. I sometimes wonder how many people would notice the difference if copies were displayed instead of the originals. And that's a shame, and a waste, because behind every work of art there's a moment of creativity and genius, a path of insights and second thoughts that never gets passed on.</p>
+
+    <p>Imagine a visitor standing in front of Botticelli's <em>Primavera</em>: with their own phone, they could see the preparatory drawing, discover how the work came about, look at what lies beneath the layers of restoration, or learn about the different phases the painting has gone through over time. I'm convinced that visitor would leave the museum with a far richer experience, and with something concrete to take away with them.</p>
+
+    <p>Learning grows out of curiosity, and curiosity is fed by new experiences — visual ones above all, in a world like today's. That was exactly the goal of Wipe Off, an app I built as Director of CISA3 at UCSD (University of California, San Diego) using engineering technologies, to let anyone retrace a painting's history and discover the different transformations it's gone through over the centuries.</p>
+
+    <p>All this wealth of knowledge should be shared and made accessible, especially to the new generations, who will have the task of safeguarding and giving value to our cultural heritage in the future. Instead, we remain stuck behind an aura of distance and exclusivity, built up and defended over time. We should all commit ourselves to &ldquo;giving our past a future&rdquo;!</p>
+
+    <p class="end-note">Interview by Giorgia Migliorini / Photos courtesy of Dr Maurizio Seracini</p>
+  </article>
+
+  <script>
+    function setLang(lang){
+      document.getElementById('article-it').hidden = (lang !== 'it');
+      document.getElementById('article-en').hidden = (lang !== 'en');
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>
